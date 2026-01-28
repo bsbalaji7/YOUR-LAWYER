@@ -1,0 +1,238 @@
+.loginContainer {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #fffbeb, #f5f5f4, #fffbeb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.loginGrid {
+  max-width: 90rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .loginGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.loginLeft {
+  text-align: left;
+}
+
+.loginLeft.mobileCenter {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .loginLeft.mobileCenter {
+    text-align: center;
+  }
+}
+
+.brandSection {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .brandSection {
+    justify-content: center;
+  }
+}
+
+.brandIcon {
+  width: 4rem;
+  height: 4rem;
+  color: #92400e;
+}
+
+.brandText h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #78350f;
+}
+
+.brandText p {
+  font-size: 1.125rem;
+  color: #b45309;
+  margin-top: 0.25rem;
+}
+
+.brandDescription {
+  color: #374151;
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.benefitsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.benefitItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.benefitDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #b45309;
+  border-radius: 50%;
+  margin-top: 0.5rem;
+  flex-shrink: 0;
+}
+
+.benefitText {
+  color: #4b5563;
+}
+
+.loginCard {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 2rem;
+}
+
+.cardTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.errorMessage {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.formGroup {
+  margin-bottom: 1rem;
+}
+
+.formLabel {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.formInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.formInput:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(180, 83, 9, 0.1);
+  border-color: #f59e0b;
+}
+
+.roleSelector {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.roleButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.5rem;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.roleButton:hover {
+  border-color: #fcd34d;
+}
+
+.roleButton.active {
+  border-color: #b45309;
+  background-color: #fffbeb;
+}
+
+.roleIcon {
+  width: 2rem;
+  height: 2rem;
+  color: #9ca3af;
+}
+
+.roleButton.active .roleIcon {
+  color: #b45309;
+}
+
+.roleLabel {
+  font-weight: 500;
+  color: #4b5563;
+  font-size: 1rem;
+}
+
+.roleButton.active .roleLabel {
+  color: #78350f;
+}
+
+.submitButton {
+  width: 100%;
+  background-color: #92400e;
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+}
+
+.submitButton:hover {
+  background-color: #78350f;
+}
+
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.toggleAuth {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.toggleLink {
+  color: #b45309;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.toggleLink:hover {
+  color: #92400e;
+}
