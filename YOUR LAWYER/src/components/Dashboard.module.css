@@ -1,0 +1,453 @@
+.dashboardWrapper {
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+.header {
+  background: linear-gradient(to right, #fef3c7, #e7e5e4);
+  border-bottom: 1px solid #fcd34d;
+}
+
+.headerContent {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.headerIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #92400e;
+}
+
+.headerTitle h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #78350f;
+}
+
+.headerTitle p {
+  font-size: 0.875rem;
+  color: #b45309;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.userInfo {
+  text-align: right;
+}
+
+.userName {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.userRole {
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-transform: capitalize;
+}
+
+.signOutButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #92400e;
+  color: white;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  font-weight: 500;
+}
+
+.signOutButton:hover {
+  background-color: #78350f;
+}
+
+.signOutIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.navigation {
+  background-color: #fffbeb;
+  border-bottom: 1px solid #fcd34d;
+}
+
+.navigationInner {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.navList {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+}
+
+.navItem {
+  padding: 1rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4b5563;
+  background: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.navItem:hover {
+  color: #78350f;
+  border-bottom-color: #b45309;
+}
+
+.mainContent {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sidebarCard {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.brandCard {
+  background: linear-gradient(to bottom right, #92400e, #d4916a);
+  color: white;
+}
+
+.brandCardTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: center;
+  padding: .5rem;
+}
+
+.brandCardIcon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.brandCardTitle h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.sidebarTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.sidebarTitleIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #b45309;
+}
+
+.sidebarTitle h3 {
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.sidebarList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  list-style: none;
+}
+
+.sidebarListItem button {
+  font-size: 0.875rem;
+  color: #404143;
+  background: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  text-align: left;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: .3rem;
+  opacity: 0.90;
+  transition: all 0.4s ease;
+}
+
+.sidebarListItem button:hover {
+  color: #b45309;
+  transform: translateX(10px);
+  opacity: 1;
+}
+
+.mainArea {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .serviceGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.serviceCard {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.serviceCard:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.serviceCardButton {
+  border: none;
+  background-color: white;
+  text-align: left;
+}
+
+.serviceIconBox {
+  background-color: #fffbeb;
+  padding: 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.serviceIcon {
+  width: 2rem;
+  height: 2rem;
+  color: #b45309;
+}
+
+.serviceContent h3 {
+  font-weight: 700;
+  color: #1f2937;
+  font-size: 1.125rem;
+}
+
+.serviceContent a {
+  font-weight: 700;
+  color: #1f2937;
+  font-size: 1.125rem;
+}
+
+.serviceContent p {
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin-top: 0.25rem;
+}
+
+.welcomeSection {
+  background: linear-gradient(to right, #fffbeb, #f5f5f4);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.welcomeTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.welcomeText {
+  color: #374151;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .featureGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.featureItem {
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.featureItem h4 {
+  font-weight: 600;
+  color: #92400e;
+  margin-bottom: 0.5rem;
+}
+
+.featureItem p {
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.lawyerDashboard {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.lawyerDashboard h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.lawyerGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .lawyerGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.lawyerStatCard {
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.lawyerStatCard svg {
+  width: 2rem;
+  height: 2rem;
+  color: #b45309;
+  margin-bottom: 0.5rem;
+}
+
+.lawyerStatCard h4 {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.lawyerStatCard .statNumber {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #b45309;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .headerInner {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .headerRight {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .navList {
+    flex-wrap: wrap;
+  }
+
+  .contentGrid {
+    gap: 1rem;
+  }
+}
+
+
+.footer {
+  width: 100%;
+  padding: 25px 10px;
+  background: #0e1c3a;
+  color: white;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.footerContent {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.footerTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.footerText {
+  font-size: 0.94rem;
+  opacity: 0.85;
+  margin-bottom: 8px;
+}
+
+.footerCopyright {
+  font-size: 0.82rem;
+  opacity: 0.6;
+}
