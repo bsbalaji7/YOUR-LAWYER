@@ -1,14 +1,14 @@
-import { useState, useRef, useEffect } from "react";
-import styles from "../components/AILawAssistant.module.css";
+import { useState, useEffect, useRef } from "react";
+import styles from './AILawAssistant.module.css';
 
-export default function AlLawAssistance() {
+export default function Chatbot() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
 
   const bottomRef = useRef(null);
 
-  // Auto scroll
+  // auto scroll
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
@@ -17,22 +17,22 @@ export default function AlLawAssistance() {
     if (!input.trim()) return;
 
     const userMsg = { text: input, sender: "user" };
-
     setMessages((prev) => [...prev, userMsg]);
+
+    const userText = input;
     setInput("");
     setLoading(true);
 
     try {
-      const res = await fetch("/api/chat", {
+      const res = await fetch("http://localhost:5000/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: input }),
+        body: JSON.stringify({ message: userText }),
       });
 
       const data = await res.json();
 
       const botMsg = { text: data.reply, sender: "bot" };
-
       setMessages((prev) => [...prev, botMsg]);
     } catch {
       setMessages((prev) => [
@@ -49,29 +49,40 @@ export default function AlLawAssistance() {
   };
 
   return (
-    <div className="chat-container">
-      <h2 className="title">⚖️ BHARAT LEGAL CORE</h2>
+    <div className={styles.chatContainer}>
+      <h2>⚖️ Bharat Legal Assistant</h2>
 
-      <div className="chat-display">
-        {messages.map((msg, index) => (
-          <div key={index} className={`message ${msg.sender}`}>
-            {msg.text}
-          </div>
+      <div className={styles.chatDisplay}>
+        {messages.map((msg, i) => (
+          <div
+  key={i}
+  className={`${styles.message} ${
+    msg.sender === "user" ? styles.me : styles.ai
+  }`}
+>
+  <span className={styles.label}>
+    {msg.sender === "user" ? "Me" : "AILawyer"}
+  </span>
+
+  {msg.text}
+</div>
         ))}
 
-        {loading && <div className="message bot">Typing...</div>}
-
-        <div ref={bottomRef} />
+        {loading && (
+  <div className={`${styles.message} ${styles.ai}`}>
+    <span className={styles.label}>AILawyer</span>
+    Typing...
+  </div>
+)}
       </div>
 
-      <div className="input-area">
+      <div className={styles.inputArea}>
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKey}
-          placeholder="Ask about Indian Law..."
+          placeholder="Ask Indian law question..."
         />
-
         <button onClick={sendMessage}>Send</button>
       </div>
     </div>

@@ -1,69 +1,96 @@
-.chat-container {
+/* ===== Chat container ===== */
+.chatContainer {
   width: 420px;
-  height: 600px;
+  height: 620px;
   margin: 40px auto;
+
   display: flex;
   flex-direction: column;
-  border-radius: 15px;
-  overflow: hidden;
-  font-family: sans-serif;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
   background: #0f172a;
+  border-radius: 16px;
+
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  overflow: hidden;
+
+  font-family: "Segoe UI", sans-serif;
   color: white;
 }
 
-.title {
+/* header */
+.chatContainer h2 {
   text-align: center;
-  padding: 12px;
+  padding: 14px;
   background: #1e293b;
+  margin: 0;
 }
 
-.chat-display {
+/* ===== message area ===== */
+.chatDisplay {
   flex: 1;
-  padding: 12px;
   overflow-y: auto;
+  padding: 12px;
+
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
+/* ===== common bubble ===== */
 .message {
-  padding: 10px 14px;
+  max-width: 75%;
+  padding: 8px 12px;
   border-radius: 12px;
-  max-width: 80%;
   font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.user {
+/* label (Me / AILawyer) */
+.label {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+/* ===== right side (Me) ===== */
+.me {
   align-self: flex-end;
-  background: #3b82f6;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  border-bottom-right-radius: 4px;
 }
 
-.bot {
+/* ===== left side (AI Lawyer) ===== */
+.ai {
   align-self: flex-start;
   background: #334155;
+  border-bottom-left-radius: 4px;
 }
 
-.input-area {
+/* ===== input section ===== */
+.inputArea {
   display: flex;
+  gap: 8px;
   padding: 10px;
   background: #1e293b;
 }
 
-.input-area input {
+.inputArea input {
   flex: 1;
   padding: 10px;
   border-radius: 8px;
   border: none;
   outline: none;
+  background: #0f172a;
+  color: white;
 }
 
-.input-area button {
-  margin-left: 8px;
-  padding: 10px 15px;
+.inputArea button {
+  padding: 10px 16px;
   border-radius: 8px;
   border: none;
   background: #22c55e;
   color: white;
+  font-weight: 600;
   cursor: pointer;
 }
