@@ -325,3 +325,141 @@
   font-size: 0.82rem;
   opacity: 0.6;
 }
+
+
+.header {
+  background: linear-gradient(to right, #fef3c7, #e7e5e4);
+  border-bottom: 1px solid #fcd34d;
+}
+
+.headerContent {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.headerIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #92400e;
+}
+
+.headerTitle h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #78350f;
+}
+
+.headerTitle p {
+  font-size: 0.875rem;
+  color: #b45309;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.userInfo {
+  text-align: right;
+}
+
+.userName {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.userRole {
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-transform: capitalize;
+}
+
+.signOutButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #92400e;
+  color: white;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  font-weight: 500;
+}
+
+.signOutButton:hover {
+  background-color: #78350f;
+}
+
+.signOutIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.navigation {
+  background-color: #fffbeb;
+  border-bottom: 1px solid #fcd34d;
+}
+
+.navigationInner {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.navList {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+}
+
+.navItem {
+  padding: 1rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4b5563;
+  background: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.navItem:hover {
+  color: #78350f;
+  border-bottom-color: #b45309;
+}
+
+.mainContent {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+}

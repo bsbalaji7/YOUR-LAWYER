@@ -1,8 +1,25 @@
 import { useState, useEffect } from "react";
-import { Shield, Heart, Eye, Users, DollarSign, Gavel, Lock, BookOpen, School } from 'lucide-react';
-import styles from './LegalRightsAwareness.module.css';
+import { Link } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext.jsx";
+
+import { Scale, LogOut } from "lucide-react";
+import { Shield, Heart, Eye, Users, DollarSign, Gavel, Lock, BookOpen, School } from "lucide-react";
+
+import styles from "./LegalRightsAwareness.module.css";
 
 export default function LegalRightsAwareness({ onBack }) {
+
+  /* ✅ FIX 1 — add missing auth */
+  const { profile, signOut } = useAuth();
+
+  /* ✅ FIX 2 — add missing signout handler */
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+    } catch (error) {
+      console.error("Error signing out:", error);
+    }
+  };
 
   // --- IMAGE SLIDER SETUP ---
   const sliderImages = [
@@ -124,20 +141,58 @@ export default function LegalRightsAwareness({ onBack }) {
   return (
     <div className={styles.awarenessContainer}>
 
-      {/* HEADER */}
-      <div className={styles.awarenessHeader}>
-        <button onClick={onBack} className={styles.backButton}>
-          ← Back
-        </button>
+      {/* ================= HEADER ================= */}
+      <header className={styles.header}>
         <div className={styles.headerContent}>
-          <h1>Legal Rights Awareness</h1>
-          <p>Understand your fundamental rights and legal protections</p>
-        </div>
-      </div>
+          <div className={styles.headerInner}>
 
-      {/* ---- SLIDER SECTION ---- */}
+            <div className={styles.headerLeft}>
+              <Scale className={styles.headerIcon} />
+              <div className={styles.headerTitle}>
+                <h1>YOUR LAWYER</h1>
+                <p>A Intelligent Legal Assistance Platform</p>
+              </div>
+            </div>
+
+            <div className={styles.headerRight}>
+              <div className={styles.userInfo}>
+                <p className={styles.userName}>{profile?.full_name}</p>
+                <p className={styles.userRole}>{profile?.role}</p>
+              </div>
+
+              <button
+                onClick={handleSignOut}
+                className={styles.signOutButton}
+              >
+                <LogOut className={styles.signOutIcon} />
+                Sign Out
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </header>
+
+      {/* ================= NAVIGATION ================= */}
+      <nav className={styles.navigation}>
+        <div className={styles.navigationInner}>
+          <div className={styles.navList}>
+            <Link to="/" className={styles.navItem}>Home</Link>
+            <Link to="/ConstitutionLaw" className={styles.navItem}>Constitution Law</Link>
+            <Link to="/StatutoryLaw" className={styles.navItem}>Statutory Law</Link>
+            <Link to="/AdministrativeLaw" className={styles.navItem}>Administrative Law</Link>
+            <Link to="/WomensLaw" className={styles.navItem}>Womens Law</Link>
+          </div>
+        </div>
+      </nav>
+
+      {/* ---- SLIDER ---- */}
       <section className={styles.sliderSection}>
-        <img src={sliderImages[slide]} alt="legal awareness" className={styles.sliderImage} />
+        <img
+          src={sliderImages[slide]}
+          alt="legal awareness"
+          className={styles.sliderImage}
+        />
       </section>
 
       {/* CONTENT */}

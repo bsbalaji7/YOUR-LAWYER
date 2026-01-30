@@ -16,13 +16,13 @@ import {
 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext.jsx';
 import UploadFiles from './UploadFiles.jsx';
-import AILawAssistant from './AILawAssistant.jsx';
 import LegalRightsAwareness from './LegalRightsAwareness.jsx';
 import LawyersList from './LawyersList.jsx';
 import CaseStatusTracking from './CaseStatusTracking.jsx';
 import PopularCasesAndJudgement from './PopularCasesAndJudgements.jsx'
 import AdministrativeLaw from './AdministrativeLaw.jsx';
 import styles from './Dashboard.module.css';
+
 
 
 export default function Dashboard() {
@@ -52,10 +52,6 @@ const handleVerifyBarId = () => {
 
   if (currentPage === 'upload') {
     return <UploadFiles onBack={() => setCurrentPage('dashboard')} />;
-  }
-
-  if (currentPage === 'aiAssistant') {
-    return <AILawAssistant onBack={() => setCurrentPage('dashboard')} />;
   }
 
   if (currentPage === 'legalRights') {
@@ -134,7 +130,7 @@ const handleVerifyBarId = () => {
               </div>
               <ul className={styles.sidebarList}>
                 <li className={styles.sidebarListItem}>
-                  <button onClick={() => setCurrentPage('aiAssistant')}>AI Legal Assistant</button>
+                 <button> <Link to = '/ChatBot'>AI Legal Assistant</Link></button>
                 </li>
                 <li className={styles.sidebarListItem}>
                   <button onClick={() => setCurrentPage('legalRights')}>Know Your Rights</button>
@@ -237,20 +233,20 @@ const handleVerifyBarId = () => {
                   <AlertCircle className={styles.serviceIcon} />
                 </div>
                 <div className={styles.serviceContent}>
-                  <h3>Legal Rights Awareness</h3>
+                  <Link to = '/LegalRightsAwareness'>Legal Rights Awareness</Link>
                   <p>Learn about your fundamental rights</p>
                 </div>
               </button>
 
               <button
-                onClick={() => setCurrentPage('aiAssistant')}
+                
                 className={`${styles.serviceCard} ${styles.serviceCardButton}`}
               >
                 <div className={styles.serviceIconBox}>
                   <MessageCircle className={styles.serviceIcon} />
                 </div>
                 <div className={styles.serviceContent}>
-                  <h3>AI Law Assistant</h3>
+                  <Link to = '/ChatBot'>AI Legal Assistant</Link>
                   <p>Get instant legal guidance</p>
                 </div>
               </button>

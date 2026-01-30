@@ -4,6 +4,8 @@ import Dashboard from './components/Dashboard.jsx';
 import ConstitutionLaw from './components/ConstitutionLaw.jsx';
 import StatutoryLaw from './components/StatutoryLaw.jsx'
 import AdministrativeLaw from './components/AdministrativeLaw.jsx';
+import Chatbot from './components/AILawAssistant.jsx';
+import LegalRightsAwareness from './components/LegalRightsAwareness.jsx';
 
 
 import { Routes, Route } from "react-router-dom";
@@ -43,6 +45,23 @@ function AppContent() {
         path="/WomensLaw"
         element={<WomensLaw />}
       />
+      <Route
+        path="/ChatBot"
+        element={<Chatbot />}
+      />
+      <Route
+        path="/LegalRightsAwareness"
+        element={<LegalRightsAwareness />}
+      />
+      <Route
+        path="/ChatBot"
+        element={<Chatbot />}
+      />
+      <Route
+        path="/ChatBot"
+        element={<Chatbot />}
+      />
+
 
     </Routes>
   );
