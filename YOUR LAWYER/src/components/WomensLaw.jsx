@@ -158,7 +158,7 @@ export default function WomensLaw({ children }) {
               <div className={styles.headerSection}>
   <div className={styles.content}>
     <div className={styles.textArea}>
-      <h1 className={styles.title}>Administrative Law</h1>
+      <h1 className={styles.title}>Womens Law</h1>
       <p className={styles.subtitle}>
         Understanding governance, accountability and control of public authorities
       </p>
@@ -168,8 +168,8 @@ export default function WomensLaw({ children }) {
 
     <img
       className={styles.topimgCL}
-      src="/src/components/assets/AdministrativeLaw2.jpg"
-      alt="Administrative Law"
+      src="/src/components/assets/womenlaw1.png"
+      alt="Womens Law"
     />
   </div>
 </div>
