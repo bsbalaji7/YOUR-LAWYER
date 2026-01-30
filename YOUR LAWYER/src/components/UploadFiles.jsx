@@ -1,21 +1,61 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Upload, X, File, FileText, FileJson } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext.jsx';
+import { supabase } from './supabase';
 import styles from './UploadFiles.module.css';
 
 export default function UploadFiles({ onBack }) {
   const { profile } = useAuth();
-  const [files, setFiles] = useState([]);
-  const [dragActive, setDragActive] = useState(false);
 
+  const [files, setFiles] = useState([]);
+  const [uploadedFiles, setUploadedFiles] = useState([]);
+  const [dragActive, setDragActive] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  /* ===============================
+     Fetch uploaded files
+  =============================== */
+  const fetchFiles = async () => {
+    if (!profile?.id) return;
+
+    const { data, error } = await supabase.storage
+      .from('case-files')
+      .list(profile.id);
+
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    const filesWithUrl = data.map((file) => {
+      const { data: urlData } = supabase.storage
+        .from('case-files')
+        .getPublicUrl(`${profile.id}/${file.name}`);
+
+      return {
+        name: file.name,
+        url: urlData.publicUrl,
+      };
+    });
+
+    setUploadedFiles(filesWithUrl);
+  };
+
+  useEffect(() => {
+    fetchFiles();
+  }, [profile]);
+
+  /* ===============================
+     Drag & Drop
+  =============================== */
   const handleDrag = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    if (e.type === 'dragenter' || e.type === 'dragover') {
+
+    if (e.type === 'dragenter' || e.type === 'dragover')
       setDragActive(true);
-    } else if (e.type === 'dragleave') {
+    else
       setDragActive(false);
-    }
   };
 
   const handleDrop = (e) => {
@@ -32,20 +72,26 @@ export default function UploadFiles({ onBack }) {
     addFiles(selectedFiles);
   };
 
+  /* ===============================
+     Add files (validation)
+  =============================== */
   const addFiles = (newFiles) => {
-    const validFiles = newFiles.filter((file) => {
-      const validTypes = [
-        'application/pdf',
-        'application/msword',
-        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-        'application/vnd.ms-excel',
-        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-        'image/jpeg',
-        'image/png',
-        'text/plain',
-      ];
-      return validTypes.includes(file.type) && file.size <= 10 * 1024 * 1024;
-    });
+    const validTypes = [
+      'application/pdf',
+      'application/msword',
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      'application/vnd.ms-excel',
+      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      'image/jpeg',
+      'image/png',
+      'text/plain',
+    ];
+
+    const validFiles = newFiles.filter(
+      (file) =>
+        validTypes.includes(file.type) &&
+        file.size <= 10 * 1024 * 1024
+    );
 
     setFiles((prev) => [...prev, ...validFiles]);
   };
@@ -54,117 +100,118 @@ export default function UploadFiles({ onBack }) {
     setFiles((prev) => prev.filter((_, i) => i !== index));
   };
 
-  const getFileIcon = (file) => {
-    if (file.type.includes('pdf')) return <FileText className={styles.fileIcon} />;
-    if (file.type.includes('word') || file.type.includes('document')) return <FileText className={styles.fileIcon} />;
-    if (file.type.includes('sheet') || file.type.includes('excel')) return <File className={styles.fileIcon} />;
-    if (file.type.includes('image')) return <File className={styles.fileIcon} />;
-    return <FileJson className={styles.fileIcon} />;
-  };
-
-  const handleUpload = () => {
+  /* ===============================
+     Upload to Supabase
+  =============================== */
+  const handleUpload = async () => {
     if (files.length === 0) {
-      alert('Please select at least one file to upload');
+      alert('Please select files');
       return;
     }
-    alert(`${files.length} file(s) ready for upload. Upload functionality would be implemented here.`);
+
+    try {
+      setLoading(true);
+
+      for (const file of files) {
+        // sanitize filename
+        const cleanName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
+
+        const filePath = `${profile.id}/${Date.now()}-${cleanName}`;
+
+        const { error } = await supabase.storage
+          .from('case-files')
+          .upload(filePath, file);
+
+        if (error) throw error;
+      }
+
+      alert('Files uploaded successfully ✅');
+
+      setFiles([]);
+      fetchFiles(); // refresh list
+    } catch (err) {
+      console.error(err);
+      alert('Upload failed ❌ ' + err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
+  /* ===============================
+     File icons
+  =============================== */
+  const getFileIcon = (file) => {
+    if (file.type?.includes('pdf')) return <FileText />;
+    if (file.type?.includes('image')) return <File />;
+    return <FileJson />;
+  };
+
+  /* ===============================
+     UI
+  =============================== */
   return (
     <div className={styles.uploadContainer}>
       <div className={styles.uploadHeader}>
-        <button onClick={onBack} className={styles.backButton}>
-          ← Back
-        </button>
+        <button onClick={onBack}>← Back</button>
         <h2>Upload Files</h2>
       </div>
 
-      <div className={styles.uploadContent}>
-        <div className={styles.uploadSection}>
-          <h3>Upload Documents for Your {profile?.role === 'lawyer' ? 'Cases' : 'Legal Matters'}</h3>
-          <p className={styles.uploadDescription}>
-            Upload supporting documents, case files, agreements, or any legal documents. Supported formats: PDF, DOC, XLS, JPG, PNG, TXT (Max 10MB per file)
-          </p>
+      <div
+        className={`${styles.dropZone} ${dragActive ? styles.active : ''}`}
+        onDragEnter={handleDrag}
+        onDragLeave={handleDrag}
+        onDragOver={handleDrag}
+        onDrop={handleDrop}
+      >
+        <Upload size={40} />
+        <p>Drag & drop files here</p>
 
-          <div
-            className={`${styles.dropZone} ${dragActive ? styles.active : ''}`}
-            onDragEnter={handleDrag}
-            onDragLeave={handleDrag}
-            onDragOver={handleDrag}
-            onDrop={handleDrop}
-          >
-            <Upload className={styles.dropIcon} />
-            <p className={styles.dropText}>Drag and drop your files here</p>
-            <span className={styles.orText}>or</span>
-            <label className={styles.browseButton}>
-              Browse Files
-              <input
-                type="file"
-                multiple
-                onChange={handleFileInput}
-                accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.txt"
-                style={{ display: 'none' }}
-              />
-            </label>
-          </div>
-
-          {files.length > 0 && (
-            <div className={styles.filesList}>
-              <h4>{files.length} file(s) selected</h4>
-              <div className={styles.filesGrid}>
-                {files.map((file, index) => (
-                  <div key={index} className={styles.fileItem}>
-                    <div className={styles.fileIconWrapper}>
-                      {getFileIcon(file)}
-                    </div>
-                    <div className={styles.fileInfo}>
-                      <p className={styles.fileName}>{file.name}</p>
-                      <p className={styles.fileSize}>
-                        {(file.size / 1024).toFixed(2)} KB
-                      </p>
-                    </div>
-                    <button
-                      onClick={() => removeFile(index)}
-                      className={styles.removeButton}
-                      aria-label="Remove file"
-                    >
-                      <X className={styles.removeIcon} />
-                    </button>
-                  </div>
-                ))}
-              </div>
-
-              <div className={styles.uploadActions}>
-                <button
-                  onClick={() => setFiles([])}
-                  className={styles.clearButton}
-                >
-                  Clear All
-                </button>
-                <button
-                  onClick={handleUpload}
-                  className={styles.uploadButton}
-                >
-                  <Upload className={styles.uploadButtonIcon} />
-                  Upload Files
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
-
-        <div className={styles.uploadInfo}>
-          <h4>Upload Guidelines</h4>
-          <ul className={styles.guidelines}>
-            <li>Maximum file size: 10 MB</li>
-            <li>Supported formats: PDF, Word, Excel, Images, Text</li>
-            <li>Ensure documents are clear and legible</li>
-            <li>Remove sensitive personal information before uploading</li>
-            <li>All uploads are encrypted and secured</li>
-            <li>You can upload multiple files at once</li>
-          </ul>
-        </div>
+        <input
+          type="file"
+          multiple
+          onChange={handleFileInput}
+        />
       </div>
+
+      {/* ================= Selected Files ================= */}
+      {files.length > 0 && (
+        <div className={styles.filesList}>
+          <h4>Selected Files</h4>
+
+          {files.map((file, index) => (
+            <div key={index} className={styles.fileItem}>
+              {getFileIcon(file)}
+              <span>{file.name}</span>
+
+              <button onClick={() => removeFile(index)}>
+                <X size={16} />
+              </button>
+            </div>
+          ))}
+
+          <button onClick={handleUpload} disabled={loading}>
+            {loading ? 'Uploading...' : 'Upload Files'}
+          </button>
+        </div>
+      )}
+
+      {/* ================= Uploaded Files ================= */}
+      {uploadedFiles.length > 0 && (
+        <div className={styles.filesList}>
+          <h4>Uploaded Files</h4>
+
+          {uploadedFiles.map((file, index) => (
+            <div key={index} className={styles.fileItem}>
+              <FileText />
+              <span>{file.name}</span>
+
+              <a href={file.url} target="_blank" rel="noreferrer">
+                View
+              </a>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
