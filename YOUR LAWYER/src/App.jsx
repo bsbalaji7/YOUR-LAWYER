@@ -6,6 +6,8 @@ import StatutoryLaw from './components/StatutoryLaw.jsx'
 import AdministrativeLaw from './components/AdministrativeLaw.jsx';
 import Chatbot from './components/AILawAssistant.jsx';
 import LegalRightsAwareness from './components/LegalRightsAwareness.jsx';
+import HearingDates from './components/HearingDates.jsx';
+import HearingRoute from "./components/HearingRoute";
 
 
 import { Routes, Route } from "react-router-dom";
@@ -61,6 +63,11 @@ function AppContent() {
         path="/ChatBot"
         element={<Chatbot />}
       />
+      <Route
+       path="/hearings" 
+       element={<HearingRoute />} 
+       />
+
 
 
     </Routes>

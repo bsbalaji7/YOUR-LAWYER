@@ -190,7 +190,7 @@ const handleVerifyBarId = () => {
                   <button>Active Cases</button>
                 </li>
                 <li className={styles.sidebarListItem}>
-                  <button>Hearing Dates</button>
+                  <button> <Link to="/hearings"> Hearing Dates </Link></button>
                 </li>
                 <li className={styles.sidebarListItem}>
                   <button>Case History</button>

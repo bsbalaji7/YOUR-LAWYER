@@ -1,0 +1,28 @@
+.container {
+  padding: 30px;
+}
+
+.header {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.form {
+  display: grid;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.list {
+  display: grid;
+  gap: 10px;
+}
+
+.card {
+  padding: 12px;
+  border: 1px solid #ec3d3d;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+}
