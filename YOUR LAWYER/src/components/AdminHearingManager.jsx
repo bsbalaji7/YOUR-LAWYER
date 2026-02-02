@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { supabase } from "./supabase";
+import { supabase } from "./supabase"; // ✅ FIXED PATH
 import { useAuth } from "../contexts/AuthContext";
 
 export default function AdminHearingManager({ onBack }) {
@@ -15,7 +15,15 @@ export default function AdminHearingManager({ onBack }) {
     notes: "",
   });
 
-  /* ================= FETCH ================= */
+  /* ================= FETCH CASES ================= */
+  const [cases, setCases] = useState([]);
+
+  const fetchCases = async () => {
+    const { data } = await supabase.from("cases").select("id, title");
+    setCases(data || []);
+  };
+
+  /* ================= ✅ MISSING FUNCTION FIXED ================= */
   const fetchHearings = async () => {
     const { data } = await supabase
       .from("hearing_dates")
@@ -26,18 +34,28 @@ export default function AdminHearingManager({ onBack }) {
   };
 
   useEffect(() => {
+    fetchCases();
     fetchHearings();
   }, []);
 
   /* ================= ADD ================= */
   const addHearing = async () => {
-    const { error } = await supabase.from("hearing_dates").insert([form]);
 
-    if (error) return alert(error.message);
+  // ✅ FIX: prevent empty uuid
+  if (!form.case_id) {
+    alert("Please enter Case ID");
+    return;
+  }
 
-    clearForm();
-    fetchHearings();
-  };
+  const { error } = await supabase
+    .from("hearing_dates")
+    .insert([form]);
+
+  if (error) return alert(error.message);
+
+  clearForm();
+  fetchHearings();
+};
 
   /* ================= UPDATE ================= */
   const updateHearing = async () => {
@@ -84,7 +102,7 @@ export default function AdminHearingManager({ onBack }) {
     return <h3>Access denied 🚫</h3>;
   }
 
-  /* ================= UI ================= */
+  /* ================= UI (UNCHANGED) ================= */
   return (
     <div style={{ padding: 30 }}>
       <button onClick={onBack}>← Back</button>
