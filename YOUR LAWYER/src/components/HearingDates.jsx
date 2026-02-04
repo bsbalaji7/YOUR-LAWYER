@@ -86,6 +86,11 @@ export default function HearingDates() {
     <div className={styles.grid}>
       {hearings.map((h) => (
         <div key={h.id} className={styles.card}>
+
+          <div className={styles.row}>
+            <MapPin className={styles.iconLocation} />
+            <span>{h.case_no}</span>
+          </div>
           
           <div className={styles.row}>
             <CalendarDays className={styles.iconDate} />

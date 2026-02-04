@@ -800,14 +800,14 @@
 }
 
 
-/* Page wrapper */
+
 .container {
   max-width: 1100px;
   margin: 40px auto;
   padding: 30px;
 }
 
-/* Title */
+
 .title {
   font-size: 28px;
   font-weight: 700;
@@ -816,14 +816,12 @@
   color: #0f172a;
 }
 
-/* GRID LAYOUT */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 22px;
 }
 
-/* CARD BOX */
 .card {
   background: #ffffff;
   padding: 22px;
@@ -839,13 +837,12 @@
   gap: 12px;
 }
 
-/* Hover animation */
+
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 22px rgba(0,0,0,0.12);
 }
 
-/* Row layout inside card */
 .row {
   display: flex;
   align-items: center;
@@ -854,7 +851,7 @@
   color: #334155;
 }
 
-/* ICON styles */
+
 .iconDate {
   color: #2563eb;
 }
@@ -867,7 +864,7 @@
   color: #64748b;
 }
 
-/* Empty state */
+
 .empty {
   text-align: center;
   padding: 40px;

@@ -118,6 +118,13 @@ export default function AdminHearingManager({ onBack }) {
             setForm({ ...form, case_id: e.target.value })
           }
         />
+        <input
+          placeholder="Case No"
+          value={form.case_no}
+          onChange={(e) =>
+            setForm({ ...form, case_no: e.target.value })
+          }
+        />
 
         <input
           type="datetime-local"
