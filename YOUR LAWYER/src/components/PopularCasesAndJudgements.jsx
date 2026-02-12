@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Scale, LogOut } from "lucide-react";
 import { useAuth } from "../contexts/AuthContext.jsx";
-import styles from "./WomensLaw.module.css";
+import styles from "./PopularCasesAndJudgements.module.css";
 import { Shield, Heart, Eye, Users, DollarSign, Gavel, Lock, School } from 'lucide-react';
 import { useState,useEffect } from "react";
 
@@ -19,11 +19,11 @@ export default function PopularCasesAndJudgements({ children }) {
   };
 
   const sliderImages = [
-    "/src/components/assets/LRB-3.webp",
+    "/src/components/assets/pcjhead1.avif",
 
-    "/src/components/assets/LRA-2.webp",
+    "/src/components/assets/pcjhead2.avif",
 
-    "/src/components/assets/LRA-1.webp"
+    "/src/components/assets/pcjhead3.jpeg"
   ];
   const [slide, setSlide] = useState(0);
   
@@ -172,6 +172,7 @@ export default function PopularCasesAndJudgements({ children }) {
 
       {/* ================= PAGE CONTENT ================= */}
       <main className={styles.mainContent}>
+        <h1>Popular Cases And Judgements</h1>
           <section className={styles.sliderSection}>
             <img
               src={sliderImages[slide]}
@@ -180,73 +181,52 @@ export default function PopularCasesAndJudgements({ children }) {
             />
           </section>
 
-              <div className={styles.headerSection}>
-  <div className={styles.content}>
-    <div className={styles.textArea}>
-      <h1 className={styles.title}>Womens Law</h1>
-      <p className={styles.subtitle}>
-        Understanding governance, accountability and control of public authorities
-      </p>
-
-      <a href="#topics" className={styles.btn}>Explore Topics</a>
-    </div>
-
-    <img
-      className={styles.topimgCL}
-      src="/src/components/assets/womenlaw1.png"
-      alt="Womens Law"
-    />
-  </div>
-</div>
-
-
-
               <div id="topics" className={styles.topContainer}>
                   <div className={styles.slogan}>
                       <h4>Liberty:</h4>
                       <p>
-                         Rules are to action, fairness is to justice, <br />
-                          Administrative law is to administration,<br />
-                          Women’s law is to protection and empowerment.
+                        Justice Today,<br /> Stronger India Tomorrow<br />
                       </p>
                   </div>
       
                   <div className={styles.introContainer}>
-                      <p>Definition •
+                      <p>
 
-                            The status of women in India has a very long and ever-changing story. In ancient times women
-                              used to enjoy rights and status equal to men. They used to be educated and independent. Their
-                              status is evident from facts like women used to enjoy the freedom to choose their husband in a
-                              ceremony commonly known as “Swayamwar”. There are instances in history that show that
-                              women used to be rulers, administrators, military commanders, teachers, writers, poets and
-                              what not. <br /> <br />
+                            Popular cases and judgments in India refer to landmark decisions delivered by the Supreme Court of India and various High Courts that have significantly influenced the country’s legal framework, constitutional interpretation, and democratic structure. These judgments are not just ordinary court decisions; they shape national policies, redefine citizens’ rights, and strengthen the foundation of justice in India. <br /> <br />
                           
                           <img className={styles.introContainer} src="/src/components/assets/womenlaw3.jpg" alt="" />
-                         Thereafter, after the invasion of Mughals during medieval period the position of women in
-                          India encountered a dramatic decline. Daughters and other women were kept inside homes and
-                          were not allowed to enjoy freedom. There are instances that depict that women were treated as
-                          slaves and were inflicted with sexual wrongs as well. All these reasons gave rise to customs
-                          like Purdah system, Sati, Johar etc. Due to all these, their position in society kept on
-                          deteriorating as their interference in administration, law making etc. had almost ended. They
-                          had no representation or say in almost everything. <br />
-                          Later on, during British rule, many social reformers came up and fought for the rights of
-                          women. Due to their efforts, many customs like Sati, Devdasi, Johar etc. could be ended.
-                          Schools were set up to provide free education to girls and many other efforts were taken to
-                          strengthen the position of females. Post-independence, Constitutional provisions were drafted
-                          in such a way that equal rights and opportunities and be provided to women so that they can
-                          also live and enjoy their basic human rights. Since then several legislations are being enacted
-                          for the welfare and development of women and their status in India.
+                        Over the years, the Indian judiciary has played a crucial role in safeguarding the Constitution and ensuring that the rule of law prevails. Through progressive interpretations and bold rulings, the courts have expanded the scope of fundamental rights, ensured equality, protected minority interests, and maintained a balance of power between the legislature, executive, and judiciary.
+                         <br /> <br />
+                         <h3>⚖️ Why Are These Cases Called “Landmark” Judgments?</h3> <br />
+                          Landmark judgments are decisions that bring significant legal, social, or political change. They become guiding principles for future cases and are frequently cited in courts, academic studies, and public discussions.
 
                           <br /><br />
-                          Nemo judex in causa sua – No bias
+                          1️⃣ Interpret Important Constitutional Provisions <br />
 
-                            Audi alteram partem – Hear the other side
+                          The courts clarify the meaning and scope of constitutional articles, ensuring that laws align with constitutional values. <br /> <br />
 
-                            Applies to administrative and quasi-judicial actions
 
-                            Ensures fairness
+                          2️⃣ Protect Fundamental Rights<br />
 
-                            Prevents miscarriage of justice
+                          They safeguard rights such as equality, freedom of speech, personal liberty, privacy, and dignity under Part III of the Constitution.<br /><br />
+
+                          3️⃣ Establish Legal Precedents<br />
+
+                          Under the doctrine of precedent, decisions of higher courts guide lower courts in future cases, ensuring consistency and fairness in the judicial system.<br /><br />
+
+                          4️⃣ Promote Social and Political Reforms<br />
+
+                          Many landmark judgments have addressed issues like gender equality, minority rights, workplace safety, privacy rights, and LGBTQ rights.<br /><br />
+
+                           <img className={styles.introContainer2} src="/src/components/assets/womenlaw2.png" alt="" />
+
+                          5️⃣ Strengthen Democracy and Rule of Law<br />
+
+                          By reviewing government actions and ensuring accountability, the judiciary acts as a guardian of democracy.<br /><br />
+
+                          6️⃣ Expand the Scope of Justice<br />
+
+                          Courts have interpreted laws dynamically to adapt to changing societal needs and modern challenges.
                           <br /><br /><br />
                            <center><h1>II. Constitution of India and Women</h1> </center> <br />
       
