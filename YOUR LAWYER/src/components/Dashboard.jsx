@@ -57,9 +57,6 @@ const handleVerifyBarId = () => {
   if (currentPage === 'legalRights') {
     return <LegalRightsAwareness onBack={() => setCurrentPage('dashboard')} />;
   }
-  if (currentPage === 'popularCase') {
-    return <PopularCasesAndJudgement onBack={() => setCurrentPage('dashboard')} />;
-  }
 
   if (currentPage === 'lawyersList') {
     return <LawyersList onBack={() => setCurrentPage('dashboard')} />;
@@ -302,14 +299,13 @@ const handleVerifyBarId = () => {
                 </div>
               </div>
               <button
-                onClick={() => setCurrentPage('popularCase')}
                 className={`${styles.serviceCard} ${styles.serviceCardButton}`}
               >
                 <div className={styles.serviceIconBox}>
                   <BookOpenText className={styles.serviceIcon} />
                 </div>
                 <div className={styles.serviceContent}>
-                  <h3>Popular Cases and Judgements</h3>
+                  <Link to='PopularCasesAndJudgements'>Popular Cases and Judgements</Link>
                   <p>Highlight important verdicts that changed legal understanding and impacted society.</p>
                 </div>
               </button>

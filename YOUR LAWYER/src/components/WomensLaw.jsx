@@ -370,7 +370,7 @@ export default function WomensLaw({ children }) {
               </div> <br /><br /><br /><br />
               {/* ================= STATUTORY NEWS SECTION ================= */}
 <section className={styles.newsSection}>
-  <h2 className={styles.newsHeading}>Latest Administrative Law Updates</h2>
+  <h2 className={styles.newsHeading}>Latest Womens Law Updates</h2>
 
   <div className={styles.newsLayout}>
 

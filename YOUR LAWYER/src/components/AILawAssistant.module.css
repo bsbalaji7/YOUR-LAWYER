@@ -1,14 +1,14 @@
 /* ===== Chat container ===== */
 .chatContainer {
-  width: 420px;
-  height: 620px;
-  margin: 40px auto;
+  width: 100%;
+  height: 100vh;
+  margin:  auto;
 
   display: flex;
   flex-direction: column;
 
   background: #0f172a;
-  border-radius: 16px;
+  border-radius: 0px;
 
   box-shadow: 0 20px 40px rgba(0,0,0,0.6);
   overflow: hidden;
