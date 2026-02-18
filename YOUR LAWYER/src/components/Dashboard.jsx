@@ -80,7 +80,7 @@ const handleVerifyBarId = () => {
             </div>
             <div className={styles.headerRight}>
               <div className={styles.userInfo}>
-                <p className={styles.userName}>{profile?.full_name}</p>
+              <Link to = '/Userprofile'> <p className={styles.userName}>{profile?.full_name}</p></Link> 
                 <p className={styles.userRole}>{profile?.role}</p>
               </div>
               <button
@@ -150,9 +150,6 @@ const handleVerifyBarId = () => {
                 <li className={styles.sidebarListItem}>
                   <button onClick={() => setCurrentPage('lawyersList')}>Find a Lawyer</button>
                 </li>
-                <li className={styles.sidebarListItem}>
-                  <button>Lawyer Directory</button>
-                </li>
               </ul>
             </div>
 
@@ -193,7 +190,7 @@ const handleVerifyBarId = () => {
                   <button>Case History</button>
                 </li>
                 <li className={styles.sidebarListItem}>
-                  <button>Judgments & Orders</button>
+                  <button><Link to="/JudgementsAndOrders"> Judgments & Orders </Link></button>
                 </li>
               </ul>
             </div>

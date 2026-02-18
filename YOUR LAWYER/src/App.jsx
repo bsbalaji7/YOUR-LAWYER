@@ -12,6 +12,8 @@ import PopularCasesAndJudgements from './components/PopularCasesAndJudgements.js
 
 import { Routes, Route } from "react-router-dom";
 import WomensLaw from './components/WomensLaw.jsx';
+import JudgementsAndOrders from './components/JudgementAndOrders.jsx';
+import UserProfile from './components/UserProfile.jsx'
 
 
 function AppContent() {
@@ -70,6 +72,14 @@ function AppContent() {
       <Route
        path="/PopularCasesAndJudgements" 
        element={<PopularCasesAndJudgements />} 
+       />
+      <Route
+       path="/JudgementsAndOrders" 
+       element={<JudgementsAndOrders />} 
+       />
+      <Route
+       path="/Userprofile" 
+       element={<UserProfile />} 
        />
 
 

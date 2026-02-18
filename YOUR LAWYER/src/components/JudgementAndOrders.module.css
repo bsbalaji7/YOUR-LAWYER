@@ -1,0 +1,225 @@
+/* ================= PAGE SECTION ================= */
+.section {
+  min-height: 100vh;
+  padding: 80px 60px;
+  background: #f4f7fb;
+  color: #1e293b;
+}
+
+/* ================= HERO ================= */
+.hero {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 800;
+  color: #0f172a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.subtitle {
+  color: #475569;
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+/* ================= GRID ================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 35px;
+}
+
+/* ================= CARD ================= */
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  border-left: 5px solid #1e3a8a;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+  color: #1e3a8a;
+  margin-bottom: 15px;
+}
+
+.card p {
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* ================= BADGES ================= */
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.badge {
+  background: #e2e8f0;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.win {
+  background: #16a34a;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.status {
+  background: #64748b;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.landmark {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #1e3a8a;
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.landmarkSmall {
+  background: #1e3a8a;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+/* ================= HEADER ================= */
+.header {
+  background: linear-gradient(to right, #fef3c7, #e7e5e4);
+  border-bottom: 1px solid #fcd34d;
+}
+
+.headerContent {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.headerIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #92400e;
+}
+
+.headerTitle h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #78350f;
+}
+
+.headerTitle p {
+  font-size: 0.875rem;
+  color: #b45309;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.userInfo {
+  text-align: right;
+}
+
+.userName {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.userRole {
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-transform: capitalize;
+}
+
+.signOutButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #92400e;
+  color: white;
+  border-radius: 0.5rem;
+  transition: 0.2s ease;
+  cursor: pointer;
+  border: none;
+  font-weight: 500;
+}
+
+.signOutButton:hover {
+  background-color: #78350f;
+}
+
+/* ================= NAVIGATION ================= */
+.navigation {
+  background-color: #fffbeb;
+  border-bottom: 1px solid #fcd34d;
+  padding: 0 1.5rem;
+}
+
+.navList {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+}
+
+.navItem {
+  padding: 1rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4b5563;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: 0.2s ease;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.navItem:hover {
+  color: #78350f;
+  border-bottom-color: #b45309;
+}

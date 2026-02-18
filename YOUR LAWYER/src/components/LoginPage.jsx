@@ -21,16 +21,28 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      if (isLogin) {
-        await signIn(email, password);
-      } else {
-        await signUp(email, password, fullName, role, phone);
+    // 🔥 Phone validation only for Sign Up
+    if (!isLogin) {
+      if (!phone || phone.length !== 10) {
+        throw new Error("Phone number must be exactly 10 digits");
       }
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
-    } finally {
-      setLoading(false);
+
+      if (!/^\d{10}$/.test(phone)) {
+        throw new Error("Phone number must contain only numbers");
+      }
     }
+
+    if (isLogin) {
+      await signIn(email, password);
+    } else {
+      await signUp(email, password, fullName, role, phone);
+    }
+
+  } catch (err) {
+    setError(err instanceof Error ? err.message : "An error occurred");
+  } finally {
+    setLoading(false);
+  }
   };
 
   return (
@@ -111,14 +123,26 @@ export default function LoginPage() {
                 </div>
 
                 <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Phone Number</label>
-                  <input
-                    type="tel"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    className={styles.formInput}
-                  />
-                </div>
+  <label className={styles.formLabel}>Phone Number</label>
+
+  <input
+    type="tel"
+    value={phone}
+    maxLength={10}
+    onChange={(e) => {
+      const value = e.target.value.replace(/\D/g, ""); // allow only numbers
+      setPhone(value);
+    }}
+    className={styles.formInput}
+    placeholder="Enter 10 digit phone number"
+  />
+
+  {phone && phone.length !== 10 && (
+    <p className={styles.errorText}>
+      Phone number must be 10 digits
+    </p>
+  )}
+</div>
               </>
             )}
 

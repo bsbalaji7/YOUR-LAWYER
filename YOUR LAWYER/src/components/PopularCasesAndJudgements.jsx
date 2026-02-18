@@ -218,7 +218,7 @@ export default function PopularCasesAndJudgements({ children }) {
 
                           Many landmark judgments have addressed issues like gender equality, minority rights, workplace safety, privacy rights, and LGBTQ rights.<br /><br />
 
-                           <img className={styles.introContainer2} src="/src/components/assets/womenlaw2.png" alt="" />
+                           <img className={styles.introContainer2} src="/src/components/assets/pcj2.avif" alt="" />
 
                           5️⃣ Strengthen Democracy and Rule of Law<br />
 
@@ -228,204 +228,116 @@ export default function PopularCasesAndJudgements({ children }) {
 
                           Courts have interpreted laws dynamically to adapt to changing societal needs and modern challenges.
                           <br /><br /><br />
-                           <center><h1>II. Constitution of India and Women</h1> </center> <br />
+                           <center><h1>Kesavananda Bharati Case (1973)</h1> </center> <br />
+                           <h3>📌 Case: Kesavananda Bharati vs State of Kerala</h3><br />
+                           <h3>🏛 Court: Supreme Court of India</h3><br />
+                           <h3>📅 Year: 1973</h3><br />
       
-                         Indian constitution has many provisions for protection of women rights. The preamble of
-                          Constitution of India also emphasizes on them. It guarantees the equality of rights of men and
-                          women in every possible way and prohibits discrimination on the ground of sex. The provisions
-                          are based on the principle of gender equality. This particular principle is featured in Preamble,
-                          Fundamental rights and Directive Principles. Indian constitution gives power to the States to
-                          make laws for the empowerment and the betterment of the women. Constitution allows the
-                          positive discrimination in favour of women by the States so that equality can be assured.
-                          In the same sequence following are the specific provisions that are enshrined in Constitution
-                          of India related to the rights of women of country.
+                         The Kesavananda Bharati case (1973) is one of the most important landmark judgments in Indian constitutional history. The case was filed by Swami Kesavananda Bharati, the head of a religious institution in Kerala, challenging the Kerala government’s land reform laws which affected the property owned by his mutt. The main issue before the Court was whether Parliament has unlimited power to amend the Constitution under Article 368, especially after several constitutional amendments that tried to restrict Fundamental Rights.
                             <br /><br />
-                             Article 14- This provision talks about equality before law and equal protection of law.
-                            It means that no one is above law and every citizen of India will be subjected to the law
-                            of land. No matter the person is male or female law is same for both. Law sees both of
-                            them with same glasses. Law does not discriminate between men and women and treats
-                            them with equality. This provision allows for reasonable classification and by doing so
-                            special laws can be made for any class or group on the basis of reasonability.
+                            <img className={styles.introContainer2} src="/src/components/assets/pcjhead1.avif" alt="" />
+                             The case was heard by the largest bench in Indian judicial history, consisting of 13 judges, and the judgment was delivered with a narrow majority of 7:6. The Supreme Court held that Parliament has the power to amend any part of the Constitution, including Fundamental Rights. However, it clearly stated that Parliament cannot alter or destroy the “Basic Structure” of the Constitution. This principle came to be known as the Basic Structure Doctrine, which became a foundation of Indian constitutional law.
                             <br /><br />
-                             Article 15(1) - This Article says that any State will not discriminate against any citizen
-                            of India on any basis whether it is religion, race caste sex or place of birth. This
-                            provision includes “sex” also which means there can be no discrimination on the part
-                            of State on the basis of gender and man and woman should be treated equally.
+                            According to the judgment, certain essential features such as the supremacy of the Constitution, rule of law, separation of powers, judicial review, secularism, federalism, democracy, and sovereignty form the basic structure. These features cannot be removed or damaged through constitutional amendments. If any amendment violates the basic structure, the Supreme Court has the power to strike it down.
                             <br /><br />
-                             Article 15(3) - It provides for the special provision for women and children. It says
-                            that power of the State to make special laws for women and children will not be barred
-                            by this article. Hence positive discrimination can be there.
-                            <br /><br />
-                             Article 16- This article deals with the provision of equality of opportunity in matters
-                            of public employment. As per this provision, for any employment which comes under
-                            the control of State or any government employment there will be no discrimination
-                            against any person on the basis of religion, race, caste, sex, decent, residence, and place
-                            of birth. Hence for any government job nothing of the above mentioned can be the
-                            criterion. Ground of Sex cannot make a person eligible for public employment. Females
-                            are given the equal opportunity as males for this purpose.
+                             This case is significant because it limited the amending power of Parliament and strengthened the role of the judiciary. It protected the core values of the Constitution and ensured that India remains a democratic and federal nation.
                             
                              <br /><br />
-                             <h2>Landmark Cases:</h2>
-                             <h3>1. Air India v. Nargesh Meerza (AIR 1981 SC 1829)</h3>
-                         In this case Supreme Court struck down the regulation no. 46 of the Air India and Indian
-                          Airlines Regulations which provided that an Air Hostess will be retired from service if she
-                          attains the age of 35 years or if she marries within 4 years of her service or if she gets pregnant
-                          whichever occurred earlier. Court held that the regulation was unconstitutional as it violated
-                          provisions of Article 14. Court called the provision as arbitrary, cruel and unreasonable as the
-                          impact of the law was open insult to Indian motherhood the most sacrosanct and cherished
-                          institution. <br />
+                             <h3>📜 Important Articles Involved</h3>
+                        • Article 368 – Deals with the power of Parliament to amend the Constitution. The main question was whether this power is unlimited. <br /> <br />
+                        • Article 13 – States that any law violating Fundamental Rights is void. The issue was whether constitutional amendments are “law” under Article 13. <br /> <br />
+
+                  <center>      <h4>⚖️ Judgment and Doctrine</h4>
+
+                          The Supreme Court (13-judge bench, 7:6 majority) held that: <br />
+
+                          ✔ Parliament can amend any part of the Constitution under Article 368. <br />
+                          ✔ Constitutional amendments are not ordinary “law” under Article 13. <br />
+                          ❌ But Parliament cannot destroy or damage the Basic Structure of the Constitution. <br />
+
+                          This led to the formation of the Basic Structure Doctrine. <br /> <br /> </center>
 
 
-                          <h3>2. Lata singh v. State of Uttar Pradesh and Another, (2006, (6) SCALE 583)</h3> 
-                          In this case Supreme Court held that every woman who has attained the age of maturity and is
-                          mentally sound can marry the man of her own choice. Inter caste marriage is not ban under
-                          Hindu Marriage Act. Her fundamental rights provided in the constitution are well protected
-                          and cannot be infringed under the garb of social norms. 
+                         <center><h1>Maneka Gandhi v. Union of India</h1> </center> <br />
+                           <h3>Maneka Gandhi v. Union of India</h3><br />
+                           <h3>🏛 Court: Supreme Court of India</h3><br />
+                           <h3>📅 Year: 1979</h3><br />
                           <br />
-                          <h3>III. Personal Laws and Women </h3>
-                           In India there are different personal laws that supersede general laws applicable with respect
-                            to marriage, divorce, adoption, succession and maintenance. A person belonging to any specific
-                            religious community like Hindu, Muslim, Parsi, Christian etc. will be dealt under their specific
-                            personal laws for matters stated above. This creates a huge disparity in various provisions
-                            including the ones applicable for rights of women. Even though the Constitution provides for
-                            equality provisions for all genders but the provisions under specific laws (personal laws) defy
-                            the very purpose. In order to overcome this demerit Art. 44 of Indian Constitution falling under
-                            Part IV forming part of Directive Principle of State Policy provides for a Uniform Civil Code
-                            (UCC) that needs to be implemented throughout the nation.
+                          The Maneka Gandhi case (1978) is a landmark judgment that greatly expanded the scope of Right to Personal Liberty under Article 21 of the Indian Constitution. The case arose when Maneka Gandhi’s passport was seized by the Government of India under the Passport Act, 1967, without giving proper reasons. She challenged this action, claiming it violated her Fundamental Rights. <br />
+                          The key question was whether the “procedure established by law” under Article 21 can be any procedure passed by Parliament, or whether it must be fair, just, and reasonable.
                       </p>
-                  </div>  
+                  </div>  <br />
                   <div className={styles.conPara}>
-                      <h4>Marriage and divorce</h4>
-                      <p>Polygamy and polyandry are not kept on equal footing under personal laws. In Muslim Law, a
-                        male can have up to 4 legally wedded wives but not vice versa. Similarly, in some Hindu
-                        Communities in Goa and Daman and Diu polygamy is permissible under pre-merger laws
-                        which are still prevalent but not polyandry 2
-                        .
+                      <h4>📜 Important Articles Involved</h4>
+                      <p>
 
+                        • Article 21 – Protection of life and personal liberty. It states that no person shall be deprived of life or personal liberty except according to “procedure established by law.” <br />
+                        • Article 14 – Right to Equality before law. <br />
+                        • Article 19(1)(a) & 19(1)(g) – Freedom of speech and expression and freedom to practice any profession. <br /> 
+                        “Article 21 became powerful after Maneka Gandhi – Life means dignified life with fair procedure.” <br /> <br />
 
-                        Under Parsi personal law, a Parsi woman marrying a non-Parsi man is not accepted as a
-                        member of Parsi community which is not the case if a Parsi man marries a non-Parsi woman.
-                        In matters of divorce, there are certain differentiating provisions under Muslim law like a
-                        female Muslim can divorce her husband by following the legal procedure and only on some
-                        specified grounds but a male Muslim can do so even by three pronouncements of ‘talaq’
-                        (Talaq-e-bidat/triple talaq) and on any reason howsoever meagre it is. Even though this
-                        provision of Muslim law has been struck down by Hon’ble Supreme Court in case of
-                        Shamim Ara v. State of U.P. & Anr3 but there is still no codified law for this purpose
+    <img src="/src/components/assets/pcj3.webp" alt="" />
+                      <h2>  🏛 Judgment</h2>
+
+                          The Supreme Court held that: <br /> <br />
+                          
+
+                          ✔ The procedure under Article 21 must be fair, just, and reasonable, not arbitrary or oppressive. <br />
+                          ✔ Articles 14, 19, and 21 are interconnected and must be read together (Golden Triangle Doctrine). <br />
+                          ✔ Any law depriving personal liberty must pass the test of equality (Article 14) and freedom (Article  19). <br /> <br />
+                            
+                          This judgment expanded the meaning of Right to Life to include: <br /> <br />
+                          • Right to live with dignity <br />
+                          • Right to travel abroad <br />
+                          • Right to privacy (later strengthened in other cases) <br />
+                          • Right to legal aid <br />
+                          • Right to speedy trial <br />
                         </p>
                   </div>
       
                   <div className={styles.introContainer2}>
-                    <h1>Guardianship and adoption</h1>
+                    <h1> Mohd. Ahmed Khan v. Shah Bano Begum</h1>
+                    <h3>🏛 Court: Supreme Court of India</h3>
+                           <h3>📅 Year: 1985</h3><br />
                     <br />
-                      <p>Under Hindu Law, women have been given an inferior right to adopt a child as compared to a
-                      man. A woman can adopt only if her husband has either renounced the world, becomes insane
-                      or has ceased to be a Hindu. Also, the mother under Hindu Minority and Guardianship Act,
-                      1956 is the second natural guardian of a legitimate child, father being the first being given
-                      custody of child up to certain age only (5 years). Similar are the provisions under Muslim Law
-                      as well where father is the natural guardian of a child and mother has only rights of custody
-                      (Hizzanat) of child up to a certain age depending on the sex of child (up to puberty if female
-                      and up to 7 years (in Sunnis) or 2 years (in Shias) if male).
-                      This unequal position of rights of mother was challenged in Githa Hariharan v. Reserve Bank
-                      of India4 where Hon’ble Supreme Court declared this provision as violative of gender justice
-                      guaranteed under Indian Constitution and interpreted the term ‘after’ in section 6 as including
-                      absence, total apathy or inability as well along with the death of the father. But it does not still
-                      guarantee the equal position of women<br />
-                          <img className={styles.introContainer2} src="/src/components/assets/womenlaw2.png" alt="" />
+                      <p>The Shah Bano case (1985) is a landmark judgment related to maintenance rights of divorced Muslim women. This case created a major debate in India about women’s rights, secular law, and the Uniform Civil Code. <br />
 
-                          <h3>The rule against arbitrariness :-</h3>
-                         In light of the discriminatory provisions under different personal laws it is advocated that the
-                          Uniform Civil Code shall be applicable throughout the nation replacing all the personal laws
-                          so that the benefit of equality provisions can reach all the female citizens of the country in order
-                          to achieve the gender justice. Personal laws mirror the patriarchal structure of the society and
-                          reflect the gender biasness which is a result of absence of engagement of women in their
-                          formation. UCC on the other hand are set of civil laws aimed at extending the gender just
-                          provisions of personal laws to everyone uniformly so as to ensure empowerment of women
-                          and marginalised sections of society. <br /><br />
-                          But it is very unfortunate that these days UCC has become more of a political agenda rather
-                          than being a measure of development. It has remained in controversy in past few years because
-                          of some baseless arguments like it seeks to reform Muslim Laws only in India which is not true
-                          as not only Muslim Law but all personal laws are almost on equal footing in the matter of
-                          gender inequality. Also, there is no other method better than implementing a Uniform Civil
-                          Code so as to effectuate gender justice in India. The courts have also expressed this view in
-                          various landmark judgements5
-                          that the certain provisions under personal laws are violative of
-                          Articles 14, 15 and 21 of Indian Constitution and that UCC is the best way out so as to ensure
-                          that basic fundamental rights do not become a legal battle for women.
-                            <br /><br />
-                            <h3> Criminal laws and women</h3>
-                         Adultery- Section 497 of Indian Penal Code deals with the offence of adultery. It says that if
-                          a man has sexual intercourse with some woman who is the wife of other person and for the
-                          same no consent was obtained from her husband. Such act will be called adultery not rape.
-                          Accused of this offence be punished with imprisonment up to 5 years or with fine or with both.
-                          This provision shows weak position of women, as if with the consent of husband a woman can
-                          be treated as a sex slave by other man. The provision was made for protection of women, but
-                          interpretation of this law may lead to other meanings as well. This law has been criticised for
-                          treating women as property owned by men. Hence Supreme Court in Joseph Shine v. Union
-                          of India6 <br /><br />
-                          called this law as anti-women and held that adultery cannot be a criminal offence but
-                          it may be a ground of offence.
-                          Rape7- Dictionary meaning of Rape means “unlawful sexual intercourse or any other sexual
-                          penetration of the vagina, anus, or mouth of another person, with or without force, by a sex
-                          organ, other body part, or foreign object, without the consent of the victim”. Rape is defined
-                          under section 375 of Indian Penal Code and its punishment is given under section 376. With
-                          the passage of time many developments have taken place in the laws related to rape. 
+Shah Bano, a 62-year-old Muslim woman, was divorced by her husband, Mohd. Ahmed Khan, through triple talaq. After divorce, her husband refused to provide financial maintenance beyond the iddat period (a waiting period after divorce under Muslim personal law). Shah Bano filed a petition under Section 125 of the Criminal Procedure Code (CrPC), 1973, which provides maintenance to a wife who is unable to maintain herself.<br />
+                          <img className={styles.introContainer2} src="/src/components/assets/pcj4.png" alt="" />
+
+                        <div className={styles.conPara}>
+                      <h4>📜 Important Articles Involved</h4>
+                      <p>
+
+                        • Section 125, CrPC – Provides maintenance to wives (including divorced wives), children, and parents who cannot maintain themselves. It applies to all citizens, irrespective of religion.<br />
+                       • Article 14 – Right to Equality. <br />
+                       • Article 15 – Prohibition of discrimination. <br /> 
+                       • Article 44 – Directive Principle of State Policy regarding Uniform Civil Code (UCC). <br /> <br />
+                       <center><h3>Main Issue</h3>  <br />
+                       <h5>The main question before the Court was:
+👉 Whether a Muslim husband is liable to pay maintenance under Section 125 CrPC after divorce, even if Muslim personal law limits maintenance to the iddat period.</h5></center> <br />
+                      <h2>  🏛 Judgment</h2>
+
+                          The Supreme Court held that: <br /> <br />
+                          
+
+                          ✔ Section 125 CrPC applies to all citizens, including Muslims. <br />
+                          ✔ A divorced Muslim woman has the right to claim maintenance if she cannot maintain herself. <br />
+                         ✔ Maintenance is not limited only to the iddat period.<br /> 
+                         ✔ Religion cannot be used to deny basic rights of financial support.<br /> <br />
+                            
+                         <h3>🏛 Aftermath – Muslim Women Act, 1986 </h3>  <br /> <br />
+                         Due to political and religious opposition, the government passed the Muslim Women (Protection of Rights on Divorce) Act, 1986. <br />
+
+                         This Act limited the husband’s liability mainly to the iddat period, but later judgments interpreted the Act in a way that still protects women’s right to fair maintenance.<br />
+                        </p>
+                  </div>sage of time many developments have taken place in the laws related to rape. 
               
                       </p>
                   </div> 
               </div> <br /><br /><br /><br />
               {/* ================= STATUTORY NEWS SECTION ================= */}
-<section className={styles.newsSection}>
-  <h2 className={styles.newsHeading}>Latest Administrative Law Updates</h2>
 
-  <div className={styles.newsLayout}>
-
-    {/* LEFT NEWS GRID */}
-    <div className={styles.newsGrid}>
-
-      <div className={styles.newsCard}>
-        <img src="/src/components/assets/womenlawnews1.webp" alt="" />
-        <div>
-          <h4>High-Handedness By State: Supreme Court Sets Aside Order Removing Chhattisgarh Woman Sarpanch From Office </h4>
-          <p>14 Nov 2024</p>
-        </div>
-      </div>
-
-      <div className={styles.newsCard}>
-        <img src="/src/components/assets/womenlawnews2.jpg" alt="" />
-        <div>
-          <h4>Clothing Is Form Of Self-Expression, Courts Should Not Morally Police Women Based On Their Clothes: Kerala High Court </h4>
-          <p> 13 Dec 2024</p>
-        </div>
-      </div>
-
-      <div className={styles.newsCard}>
-        <img src="/src/components/assets/womenlawnews3.webp" alt="" />
-        <div>
-          <h4>MLA Rahul Mamkootathil Moves Sessions Court Seeking Bail In Third Rape Case  </h4>
-          <p>10 Days ago</p>
-        </div>
-      </div>
-
-      <div className={styles.newsCard}>
-        <img src="/src/components/assets/womenlawnews4.jpg" alt="" />
-        <div>
-          <h4>Kerala High Court Orders Medical Board To Examine Jailed Kenyan Woman Seeking Medical Termination Of Pregnancy </h4>
-          <p> 12 Mar 2024</p>
-        </div>
-      </div>
-
-    </div>
-
-    {/* RIGHT SIDEBAR */}
-    <div className={styles.newsSidebar}>
-      <img className={styles.newsMain} src="/src/components/assets/womenlawnews5.jpg" alt="" /> 
-      <p>The Bombay High Court last week transferred a matrimonial case observing that law considers women as belonging to weaker section of society and her inconvenience needs to be prioritized. The court observed,"Even though this reason may be of some importance, the fact that the Applicant in Miscellaneous Civil Application No.171 of 2022 is a lady, her inconvenience needs to be...
-      </p>
-      <button>Read more....</button>
-    </div>
-
-  </div>
-</section>
 
             </main>
 
