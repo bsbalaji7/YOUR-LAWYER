@@ -361,3 +361,56 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* 🚔 POLICE STAGE TRACKER */
+
+.stageContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  margin: 2rem;
+}
+
+.stageStep {
+  text-align: center;
+  flex: 1;
+  position: relative;
+}
+
+.stageCircle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  margin: 0 auto;
+  transition: 0.3s ease;
+}
+
+.completedStage {
+  background: #0f766e;
+  color: white;
+}
+
+.stageLabel {
+  font-size: 12px;
+  margin-top: 8px;
+  color: #374151;
+}
+
+/* Connecting Line */
+.stageStep:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  right: -50%;
+  width: 100%;
+  height: 2px;
+  background: #e5e7eb;
+  z-index: -1;
+}

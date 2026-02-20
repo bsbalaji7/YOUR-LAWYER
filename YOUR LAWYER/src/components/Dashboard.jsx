@@ -282,7 +282,7 @@ const handleVerifyBarId = () => {
                   <AlertCircle className={styles.serviceIcon} />
                 </div>
                 <div className={styles.serviceContent}>
-                  <a target='_blank' href='https://cybercrime.gov.in/Webform/Accept.aspx'>Cyber Crime Raise Complaint</a>
+                  <Link to="/CyberCrimeComplaint" target='_blank'>Cyber Crime Raise Complaint</Link>
                   <p>Write A Cybercrime Complaint</p>
                 </div>
               </div>
