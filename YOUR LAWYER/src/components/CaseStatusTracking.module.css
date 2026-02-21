@@ -414,3 +414,31 @@
   background: #e5e7eb;
   z-index: -1;
 }
+
+.statsSection {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.statCard {
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+
+.statCard h3 {
+  margin: 0;
+  color: #b45309;
+}
+
+.statCard p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}

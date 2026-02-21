@@ -1,0 +1,123 @@
+/* ===== MAIN CONTAINER ===== */
+.container {
+  background: #f9fafb;
+  padding: 30px;
+  border-radius: 16px;
+}
+
+/* ===== TITLE ===== */
+.container h1 {
+  text-align: center;
+  background: linear-gradient(to right, #b45309, #92400e);
+  color: white;
+  padding: 18px;
+  border-radius: 12px;
+  font-size: 26px;
+  margin-bottom: 25px;
+}
+
+/* ===== FORM ===== */
+.container form {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== SECTION HEADERS ===== */
+.container h2 {
+  background: #fef3c7;
+  color: #92400e;
+  padding: 10px;
+  border-left: 6px solid #b45309;
+  border-radius: 6px;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+/* ===== LABELS ===== */
+.container label {
+  font-weight: 600;
+  color: #92400e;
+  display: block;
+  margin-top: 12px;
+}
+
+/* ===== INPUTS ===== */
+.container input,
+.container select,
+.container textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.container input:focus,
+.container select:focus,
+.container textarea:focus {
+  outline: none;
+  border-color: #b45309;
+  box-shadow: 0 0 0 2px rgba(180, 83, 9, 0.15);
+}
+
+.container textarea {
+  resize: none;
+}
+
+/* ===== CAPTCHA ===== */
+.captchaBox {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.captchaText {
+  background: #92400e;
+  color: white;
+  padding: 8px 16px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  border-radius: 6px;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.captchaBox button {
+  background: #b45309;
+  border: none;
+  padding: 6px 12px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.captchaBox button:hover {
+  background: #92400e;
+}
+
+/* ===== BUTTONS ===== */
+.container button {
+  padding: 10px 22px;
+  margin-top: 20px;
+  background: #b45309;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.container button:hover {
+  background: #92400e;
+}
+
+.container button:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+}

@@ -263,7 +263,7 @@ const handleVerifyBarId = () => {
                   <FileText className={styles.serviceIcon} />
                 </div>
                 <div className={styles.serviceContent}>
-                  <a target='_blank' href='https://consumerhelpline.gov.in/user/signup.php'>Consumer Complaint</a>
+                  <Link target='_blank' to='/ConsumerComplaint'>Consumer Complaint</Link>
                   <p>File a consumer complaint online</p>
                 </div>
               </div>
@@ -273,7 +273,7 @@ const handleVerifyBarId = () => {
                   <AlertCircle className={styles.serviceIcon} />
                 </div>
                 <div className={styles.serviceContent}>
-                  <a target='_blank' href='https://eservices.tnpolice.gov.in/CCTNSNICSDC/ComplaintRegistrationPage?1'>Raise Complaint</a>
+                  <Link target='_blank' to='/PoliceComplaint'>Raise Complaint</Link>
                   <p>Submit a new legal complaint</p>
                 </div>
               </div>

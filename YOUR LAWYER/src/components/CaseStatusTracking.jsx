@@ -47,13 +47,10 @@ export default function CaseStatusTracking({ onBack }) {
       .eq("user_id", user.id)
       .order("filed_date", { ascending: false });
 
-    if (error) {
-      console.error(error);
-      setLoading(false);
-      return;
+    if (!error) {
+      setCases(data || []);
     }
 
-    setCases(data || []);
     setLoading(false);
   };
 
@@ -76,9 +73,18 @@ export default function CaseStatusTracking({ onBack }) {
     );
   }
 
+  const totalCases = cases.length;
+  const activeCases = cases.filter(c => c.status === "Active").length;
+  const resolvedCases = cases.filter(c => c.status === "Resolved").length;
+
+  const nextHearingCase = cases.find(c => c.next_hearing);
+  const nextHearing = nextHearingCase
+    ? new Date(nextHearingCase.next_hearing).toLocaleDateString()
+    : "N/A";
+
   return (
     <div className={styles.caseContainer}>
-      
+
       {/* HEADER */}
       <div className={styles.caseHeader}>
         <button onClick={onBack} className={styles.backButton}>
@@ -91,6 +97,42 @@ export default function CaseStatusTracking({ onBack }) {
         </div>
       </div>
 
+      {/* ===== STATS SECTION (NEW ADDED) ===== */}
+      <div className={styles.statsSection}>
+        <div className={styles.statCard}>
+          <FileText />
+          <div>
+            <p>Total Cases</p>
+            <h3>{totalCases}</h3>
+          </div>
+        </div>
+
+        <div className={styles.statCard}>
+          <AlertCircle />
+          <div>
+            <p>Active Cases</p>
+            <h3>{activeCases}</h3>
+          </div>
+        </div>
+
+        <div className={styles.statCard}>
+          <CheckCircle />
+          <div>
+            <p>Resolved</p>
+            <h3>{resolvedCases}</h3>
+          </div>
+        </div>
+
+        <div className={styles.statCard}>
+          <Calendar />
+          <div>
+            <p>Next Hearing</p>
+            <h3>{nextHearing}</h3>
+          </div>
+        </div>
+      </div>
+
+      {/* ===== CASE LIST ===== */}
       <div className={styles.caseContent}>
         <div className={styles.casesSection}>
           <h2>Your Cases</h2>
@@ -107,12 +149,9 @@ export default function CaseStatusTracking({ onBack }) {
                 return (
                   <div key={caseItem.id} className={styles.caseCard}>
                     
-                    {/* HEADER */}
                     <div className={styles.caseHeader2}>
                       <div>
                         <h3>{caseItem.title}</h3>
-
-                        {/* Case Number */}
                         <p className={styles.caseNumber}>
                           Case No: {caseItem.case_number}
                         </p>
@@ -126,12 +165,11 @@ export default function CaseStatusTracking({ onBack }) {
                       </div>
                     </div>
 
-                    {/* Description */}
                     <p className={styles.caseDescription}>
                       {caseItem.description}
                     </p>
 
-                    {/* 🚔 POLICE STAGE TRACKER */}
+                    {/* STAGE TRACKER */}
                     <div className={styles.stageContainer}>
                       {stages.map((stageName, index) => {
                         const isCompleted = index <= currentIndex;
@@ -153,19 +191,14 @@ export default function CaseStatusTracking({ onBack }) {
                       })}
                     </div>
 
-                    {/* Filed Date */}
                     <div className={styles.caseDetails}>
                       <div className={styles.detailItem}>
                         <Calendar className={styles.detailIcon} />
                         <div>
-                          <p className={styles.detailLabel}>
-                            Filed Date
-                          </p>
+                          <p className={styles.detailLabel}>Filed Date</p>
                           <p className={styles.detailValue}>
                             {caseItem.filed_date
-                              ? new Date(
-                                  caseItem.filed_date
-                                ).toLocaleDateString()
+                              ? new Date(caseItem.filed_date).toLocaleDateString()
                               : "N/A"}
                           </p>
                         </div>
@@ -179,6 +212,7 @@ export default function CaseStatusTracking({ onBack }) {
           )}
         </div>
       </div>
+
     </div>
   );
 }
