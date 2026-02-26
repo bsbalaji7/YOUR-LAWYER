@@ -94,3 +94,25 @@
   font-weight: 600;
   cursor: pointer;
 }
+
+
+.message ul,
+.message ol {
+  padding-left: 20px;      /* controlled padding */
+  margin: 8px 0;
+}
+
+.message li {
+  margin-bottom: 5px;
+  word-break: break-word;
+}
+
+/* Fix headings inside message */
+.message h1,
+.message h2,
+.message h3 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+

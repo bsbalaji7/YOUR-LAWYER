@@ -1,14 +1,13 @@
 import { useState, useEffect, useRef } from "react";
-import styles from './AILawAssistant.module.css';
+import ReactMarkdown from "react-markdown";
+import styles from "./AILawAssistant.module.css";
 
 export default function Chatbot() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-
   const bottomRef = useRef(null);
 
-  // auto scroll
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
@@ -31,8 +30,8 @@ export default function Chatbot() {
       });
 
       const data = await res.json();
-
       const botMsg = { text: data.reply, sender: "bot" };
+
       setMessages((prev) => [...prev, botMsg]);
     } catch {
       setMessages((prev) => [
@@ -55,25 +54,27 @@ export default function Chatbot() {
       <div className={styles.chatDisplay}>
         {messages.map((msg, i) => (
           <div
-  key={i}
-  className={`${styles.message} ${
-    msg.sender === "user" ? styles.me : styles.ai
-  }`}
->
-  <span className={styles.label}>
-    {msg.sender === "user" ? "Me" : "AILawyer"}
-  </span>
+            key={i}
+            className={`${styles.message} ${
+              msg.sender === "user" ? styles.me : styles.ai
+            }`}
+          >
+            <span className={styles.label}>
+              {msg.sender === "user" ? "Me" : "AILawyer"}
+            </span>
 
-  {msg.text}
-</div>
+            <ReactMarkdown>{msg.text}</ReactMarkdown>
+          </div>
         ))}
 
         {loading && (
-  <div className={`${styles.message} ${styles.ai}`}>
-    <span className={styles.label}>AILawyer</span>
-    Typing...
-  </div>
-)}
+          <div className={`${styles.message} ${styles.ai}`}>
+            <span className={styles.label}>AILawyer</span>
+            Typing...
+          </div>
+        )}
+
+        <div ref={bottomRef}></div>
       </div>
 
       <div className={styles.inputArea}>
