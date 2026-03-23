@@ -17,6 +17,9 @@ import UserProfile from './components/UserProfile.jsx'
 import ConsumerComplaint from './components/ConsumerComplaint.jsx';
 import PoliceComplaint from './components/PoliceComplaint.jsx';
 import CyberCrimeComplaint from './components/CyberCrimeComplaint.jsx';
+import CriminalLaw from './components/CriminalLaw.jsx';
+import CivilLaw from './components/CivilLaw.jsx';
+import KnowYourRights from './components/KnowYourRights.jsx';
 
 
 function AppContent() {
@@ -95,6 +98,18 @@ function AppContent() {
       <Route
        path="/CyberCrimeComplaint" 
        element={<CyberCrimeComplaint />} 
+       />
+       <Route
+       path="/CriminalLaw" 
+       element={<CriminalLaw />} 
+       />
+       <Route
+       path="/CivilLaw" 
+       element={<CivilLaw />} 
+       />
+       <Route
+       path="/KnowYourRights" 
+       element={<KnowYourRights />} 
        />
 
 

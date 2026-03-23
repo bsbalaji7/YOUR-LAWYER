@@ -133,9 +133,6 @@ const handleVerifyBarId = () => {
                   <button onClick={() => setCurrentPage('legalRights')}>Know Your Rights</button>
                 </li>
                 <li className={styles.sidebarListItem}>
-                  <button>Legal Advice & Guidance</button>
-                </li>
-                <li className={styles.sidebarListItem}>
                   <button>Case Status Tracking</button>
                 </li>
               </ul>
@@ -163,10 +160,10 @@ const handleVerifyBarId = () => {
                   <button>Constitutional Law</button>
                 </li>
                 <li className={styles.sidebarListItem}>
-                  <button>Criminal Law</button>
+                  <button><Link to="/CivilLaw"> Civil Law </Link></button>
                 </li>
                 <li className={styles.sidebarListItem}>
-                  <button>Civil Law</button>
+                 <button> <Link to="/CriminalLaw"> Criminal Law </Link></button>
                 </li>
               </ul>
             </div>
