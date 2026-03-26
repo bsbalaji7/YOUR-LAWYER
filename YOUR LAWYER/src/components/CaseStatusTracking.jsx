@@ -9,7 +9,7 @@ import {
 import { supabase } from "../lib/supabase";
 import styles from "./CaseStatusTracking.module.css";
 
-export default function CaseStatusTracking({ onBack }) {
+export default function CaseStatusTracking({ onBack, onViewActiveCases }) { // ✅ ADDED PROP
   const [cases, setCases] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -97,7 +97,25 @@ export default function CaseStatusTracking({ onBack }) {
         </div>
       </div>
 
-      {/* ===== STATS SECTION (NEW ADDED) ===== */}
+      {/* ✅ NEW BUTTON (ADDED ONLY) */}
+      <div style={{ padding: "0 30px 20px" }}>
+        <button
+          onClick={onViewActiveCases}
+          style={{
+            padding: "10px 18px",
+            borderRadius: "8px",
+            border: "none",
+            background: "#ff9800",
+            color: "#000",
+            cursor: "pointer",
+            fontWeight: "bold"
+          }}
+        >
+          View Active Cases
+        </button>
+      </div>
+
+      {/* ===== STATS SECTION ===== */}
       <div className={styles.statsSection}>
         <div className={styles.statCard}>
           <FileText />

@@ -178,7 +178,7 @@ const handleVerifyBarId = () => {
                   <button onClick={() => setCurrentPage('caseTracking')}>Case Status Tracking</button>
                 </li>
                 <li className={styles.sidebarListItem}>
-                  <button>Active Cases</button>
+                  <button><Link to="/ActiveCases"> Active Cases </Link></button>
                 </li>
                 <li className={styles.sidebarListItem}>
                   <button> <Link to="/hearings"> Hearing Dates </Link></button>

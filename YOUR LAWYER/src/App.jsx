@@ -20,6 +20,7 @@ import CyberCrimeComplaint from './components/CyberCrimeComplaint.jsx';
 import CriminalLaw from './components/CriminalLaw.jsx';
 import CivilLaw from './components/CivilLaw.jsx';
 import KnowYourRights from './components/KnowYourRights.jsx';
+import ActiveCases from './components/ActiveCases.jsx';
 
 
 function AppContent() {
@@ -110,6 +111,10 @@ function AppContent() {
        <Route
        path="/KnowYourRights" 
        element={<KnowYourRights />} 
+       />
+       <Route
+       path="/ActiveCases" 
+       element={<ActiveCases />} 
        />
 
 
