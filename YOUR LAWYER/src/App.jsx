@@ -21,6 +21,7 @@ import CriminalLaw from './components/CriminalLaw.jsx';
 import CivilLaw from './components/CivilLaw.jsx';
 import KnowYourRights from './components/KnowYourRights.jsx';
 import ActiveCases from './components/ActiveCases.jsx';
+import HelpSupport from './components/Helpdesk.jsx';
 
 
 function AppContent() {
@@ -115,6 +116,10 @@ function AppContent() {
        <Route
        path="/ActiveCases" 
        element={<ActiveCases />} 
+       />
+       <Route
+       path="/HelpAndSupport" 
+       element={<HelpSupport />} 
        />
 
 

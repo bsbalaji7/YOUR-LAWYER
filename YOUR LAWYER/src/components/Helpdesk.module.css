@@ -1,0 +1,314 @@
+/* ================== MAIN WRAPPER ================== */
+.dashboardWrapper {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #f9fafb, #f3f4f6);
+  padding-bottom: 40px;
+}
+
+
+/* ================== HEADER (UNCHANGED) ================== */
+.header {
+  background: linear-gradient(to right, #fef3c7, #e7e5e4);
+  border-bottom: 1px solid #fcd34d;
+}
+
+.headerContent {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.headerIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #92400e;
+}
+
+.headerTitle h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #78350f;
+}
+
+.headerTitle p {
+  font-size: 0.875rem;
+  color: #b45309;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.userInfo {
+  text-align: right;
+}
+
+.userName {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.userRole {
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-transform: capitalize;
+}
+
+.signOutButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #92400e;
+  color: white;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  font-weight: 500;
+}
+
+.signOutButton:hover {
+  background-color: #78350f;
+}
+
+.signOutIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+
+/* ================== NAVIGATION (UNCHANGED) ================== */
+.navigation {
+  background-color: #fffbeb;
+  border-bottom: 1px solid #fcd34d;
+}
+
+.navigationInner {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.navList {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+}
+
+.navItem {
+  padding: 1rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4b5563;
+  background: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.navItem:hover {
+  color: #78350f;
+  border-bottom-color: #b45309;
+}
+
+
+/* ================== TITLE ================== */
+.main-title {
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  color: #1f2937;
+}
+
+
+/* ================== FAQ ================== */
+.faq-container {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.faq-heading {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  text-align: center;
+  color: #374151;
+}
+
+.faq-line {
+  background: #ffffff;
+  border-left: 5px solid #f59e0b;
+  border-radius: 14px;
+  margin-bottom: 18px;
+  padding: 18px 22px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.faq-line:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 17px;
+  color: #1f2937;
+}
+
+.faq-answer {
+  margin-top: 14px;
+  color: #4b5563;
+  text-align: left;
+  line-height: 1.6;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+
+/* ================== FORM ================== */
+.form-container {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-title {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+.form-box {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input-field {
+  padding: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.input-field:focus {
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245,158,11,0.2);
+}
+
+.textarea {
+  height: 120px;
+  resize: none;
+}
+
+.submit-btn {
+  background: linear-gradient(to right, #f59e0b, #f97316);
+  color: white;
+  padding: 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(245,158,11,0.4);
+}
+
+
+/* ================== CONTACT ================== */
+.contact {
+  margin-top: 35px;
+  text-align: center;
+  color: #374151;
+}
+
+.contact p {
+  margin: 6px 0;
+}
+
+
+/* ================== ANIMATION ================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ================== RESPONSIVE ================== */
+@media (max-width: 768px) {
+  .headerInner {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .headerRight {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .navList {
+    flex-wrap: wrap;
+  }
+
+  .main-title {
+    font-size: 28px;
+  }
+
+  .faq-heading {
+    font-size: 22px;
+  }
+
+  .form-box {
+    padding: 20px;
+  }
+}
