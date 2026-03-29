@@ -22,6 +22,8 @@ import CaseStatusTracking from './CaseStatusTracking.jsx';
 import PopularCasesAndJudgement from './PopularCasesAndJudgements.jsx'
 import AdministrativeLaw from './AdministrativeLaw.jsx';
 import styles from './Dashboard.module.css';
+import CaseHistory from "./CaseHistory.jsx";
+
 
 
 
@@ -31,6 +33,7 @@ export default function Dashboard() {
   /* ✅ Bar Council verification state */
 const [barCouncilId, setBarCouncilId] = useState(profile?.barCouncilId || '');
 const [isVerified, setIsVerified] = useState(!!profile?.barCouncilId);
+const [selectedCase, setSelectedCase] = useState(null);
 
 const handleVerifyBarId = () => {
   if (barCouncilId.trim() === '1234') {
@@ -63,8 +66,31 @@ const handleVerifyBarId = () => {
   }
 
   if (currentPage === 'caseTracking') {
-    return <CaseStatusTracking onBack={() => setCurrentPage('dashboard')} />;
+
+  // 👉 open history page
+  if (selectedCase) {
+    return (
+      <CaseHistory
+        caseId={selectedCase}
+        onBack={() => setSelectedCase(null)}
+      />
+    );
   }
+
+  // 👉 open case list page
+  return (
+    <CaseStatusTracking
+      onBack={() => setCurrentPage('dashboard')}
+      onViewActiveCases={() => {}}
+
+      // 🔥 THIS IS THE MAIN FIX
+      onViewHistory={(id) => {
+        console.log("✅ Selected Case:", id);
+        setSelectedCase(id);
+      }}
+    />
+  );
+}
 
   return (
     <div className={styles.dashboardWrapper}>
@@ -98,14 +124,12 @@ const handleVerifyBarId = () => {
       <nav className={styles.navigation}>
         <div className={styles.navigationInner}>
           <div className={styles.navList}>
-            {['Home', <Link to = '/ConstitutionLaw'>Constitution Law</Link>, <Link to ='/StatutoryLaw'>StatutoryLaw</Link>,<Link to="/AdministrativeLaw" className={styles.navItem}>Administrative Law</Link>, <Link to="/WomensLaw" className={styles.navItem}>Womens Law</Link>].map((item) => (
-              <button
-                key={item}
-                className={styles.navItem}
-              >
-                {item}
-              </button>
-            ))}
+            {['Home', <Link to = '/ConstitutionLaw'>Constitution Law</Link>, <Link to ='/StatutoryLaw'>StatutoryLaw</Link>,<Link to="/AdministrativeLaw" className={styles.navItem}>Administrative Law</Link>, <Link to="/WomensLaw" className={styles.navItem}>Womens Law</Link>]
+            .map((item, index) => (
+  <button key={index} className={styles.navItem}>
+    {item}
+  </button>
+))}
           </div>
         </div>
       </nav>
@@ -184,7 +208,7 @@ const handleVerifyBarId = () => {
                   <button> <Link to="/hearings"> Hearing Dates </Link></button>
                 </li>
                 <li className={styles.sidebarListItem}>
-                  <button>Case History</button>
+                  <button><Link to="/CaseHistory"> Case History </Link></button>
                 </li>
                 <li className={styles.sidebarListItem}>
                   <button><Link to="/JudgementsAndOrders"> Judgments & Orders </Link></button>

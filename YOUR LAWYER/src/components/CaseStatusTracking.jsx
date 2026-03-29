@@ -9,7 +9,11 @@ import {
 import { supabase } from "../lib/supabase";
 import styles from "./CaseStatusTracking.module.css";
 
-export default function CaseStatusTracking({ onBack, onViewActiveCases }) { // âœ… ADDED PROP
+export default function CaseStatusTracking({
+  onBack,
+  onViewActiveCases,
+  onViewHistory // âœ… required
+}) {
   const [cases, setCases] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -48,6 +52,7 @@ export default function CaseStatusTracking({ onBack, onViewActiveCases }) { // â
       .order("filed_date", { ascending: false });
 
     if (!error) {
+      console.log("ðŸ“¦ Cases:", data);
       setCases(data || []);
     }
 
@@ -97,7 +102,7 @@ export default function CaseStatusTracking({ onBack, onViewActiveCases }) { // â
         </div>
       </div>
 
-      {/* âœ… NEW BUTTON (ADDED ONLY) */}
+      {/* ACTIVE BUTTON */}
       <div style={{ padding: "0 30px 20px" }}>
         <button
           onClick={onViewActiveCases}
@@ -115,7 +120,7 @@ export default function CaseStatusTracking({ onBack, onViewActiveCases }) { // â
         </button>
       </div>
 
-      {/* ===== STATS SECTION ===== */}
+      {/* STATS */}
       <div className={styles.statsSection}>
         <div className={styles.statCard}>
           <FileText />
@@ -150,7 +155,7 @@ export default function CaseStatusTracking({ onBack, onViewActiveCases }) { // â
         </div>
       </div>
 
-      {/* ===== CASE LIST ===== */}
+      {/* CASE LIST */}
       <div className={styles.caseContent}>
         <div className={styles.casesSection}>
           <h2>Your Cases</h2>
@@ -166,7 +171,8 @@ export default function CaseStatusTracking({ onBack, onViewActiveCases }) { // â
 
                 return (
                   <div key={caseItem.id} className={styles.caseCard}>
-                    
+
+                    {/* HEADER */}
                     <div className={styles.caseHeader2}>
                       <div>
                         <h3>{caseItem.title}</h3>
@@ -183,9 +189,25 @@ export default function CaseStatusTracking({ onBack, onViewActiveCases }) { // â
                       </div>
                     </div>
 
+                    {/* DESCRIPTION */}
                     <p className={styles.caseDescription}>
                       {caseItem.description}
                     </p>
+
+                    {/* ðŸ”¥ VIEW HISTORY BUTTON (SAFE FIX) */}
+                    <button
+                      className={styles.viewDetailsButton}
+                      onClick={() => {
+                        if (onViewHistory) {
+                          console.log("ðŸ“Œ Clicked Case ID:", caseItem.id);
+                          onViewHistory(caseItem.id);
+                        } else {
+                          console.log("âŒ onViewHistory not passed");
+                        }
+                      }}
+                    >
+                      View History
+                    </button>
 
                     {/* STAGE TRACKER */}
                     <div className={styles.stageContainer}>
@@ -209,6 +231,7 @@ export default function CaseStatusTracking({ onBack, onViewActiveCases }) { // â
                       })}
                     </div>
 
+                    {/* DETAILS */}
                     <div className={styles.caseDetails}>
                       <div className={styles.detailItem}>
                         <Calendar className={styles.detailIcon} />
