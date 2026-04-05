@@ -8,70 +8,63 @@ export default function CaseHistory({ caseId, onBack }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-
-    // 🔥 CASE-SPECIFIC HISTORY
-    if (caseId) {
-      console.log("✅ Fetching history for caseId:", caseId);
-      fetchHistory(caseId);
-
-      const channel = supabase
-        .channel("case-history")
-        .on(
-          "postgres_changes",
-          {
-            event: "INSERT",
-            schema: "public",
-            table: "case_history",
-            filter: `case_id=eq.${caseId}`
-          },
-          (payload) => {
-            console.log("🔥 Realtime update:", payload.new);
-            setHistory((prev) => [payload.new, ...prev]);
-          }
-        )
-        .subscribe();
-
-      return () => {
-        supabase.removeChannel(channel);
-      };
-    }
-
-    // 🔥 ALL HISTORY (NO caseId)
-    console.log("⚠️ No caseId → fetching ALL history");
-    fetchAllHistory();
-
+    loadHistory();
   }, [caseId]);
 
-  // 🔥 FETCH SINGLE CASE HISTORY
-  const fetchHistory = async (id) => {
+  const loadHistory = async () => {
     setLoading(true);
 
-    const { data, error } = await supabase
-      .from("case_history")
-      .select("*")
-      .eq("case_id", id)
-      .order("created_at", { ascending: false });
+    // 🔥 GET CURRENT USER
+    const {
+      data: { user }
+    } = await supabase.auth.getUser();
 
-    console.log("📦 CASE DATA:", data);
-    console.log("❌ ERROR:", error);
-
-    if (!error) {
-      setHistory(data || []);
+    if (!user) {
+      console.log("❌ No user logged in");
+      setLoading(false);
+      return;
     }
 
-    setLoading(false);
-  };
+    console.log("👤 Current User:", user.id);
 
-  // 🔥 FETCH ALL HISTORY
-  const fetchAllHistory = async () => {
-    setLoading(true);
+    // 🔥 STEP 1: GET ALLOWED CASE IDS
+    const { data: allowedCases, error: caseError } = await supabase
+      .from("cases")
+      .select("id")
+      .or(`user_id.eq.${user.id},lawyer_id.eq.${user.id}`);
 
-    const { data, error } = await supabase
+    if (caseError) {
+      console.log("❌ Case Fetch Error:", caseError);
+      setLoading(false);
+      return;
+    }
+
+    const caseIds = allowedCases?.map(c => c.id) || [];
+
+    console.log("✅ Allowed Case IDs:", caseIds);
+
+    if (caseIds.length === 0) {
+      setHistory([]);
+      setLoading(false);
+      return;
+    }
+
+    // 🔥 STEP 2: FETCH HISTORY
+    let query = supabase
       .from("case_history")
       .select("*")
+      .in("case_id", caseIds)
       .order("created_at", { ascending: false });
 
-    console.log("📦 ALL HISTORY:", data);
+    // 🔥 OPTIONAL: SPECIFIC CASE FILTER
+    if (caseId) {
+      console.log("📌 Filtering for caseId:", caseId);
+      query = query.eq("case_id", caseId);
+    }
+
+    const { data, error } = await query;
+
+    console.log("📦 FINAL HISTORY DATA:", data);
     console.log("❌ ERROR:", error);
 
     if (!error) {
