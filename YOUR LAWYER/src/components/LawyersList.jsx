@@ -1,8 +1,30 @@
-import { Star, MapPin, Phone, Mail, Briefcase } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { Star, MapPin, Phone, Mail, Briefcase } from "lucide-react";
+import { supabase } from "../lib/supabase";
 import styles from './LawyersList.module.css';
 
 export default function LawyersList({ onBack }) {
-  const lawyers = [
+  const [lawyers, setLawyers] = useState([]);
+
+  useEffect(() => {
+    fetchLawyers();
+  }, []);
+
+  const fetchLawyers = async () => {
+    const { data, error } = await supabase
+      .from("profiles")
+      .select("*")
+      .eq("role", "lawyer");
+
+    if (error) {
+      console.error(error);
+    } else {
+      setLawyers(data);
+    }
+  };
+
+  
+  const staticLawyers = [
     {
       id: 1,
       name: 'Asim Abbas',
@@ -198,6 +220,7 @@ export default function LawyersList({ onBack }) {
       bio: 'V. P. Raman served as the third Advocate-General of Tamil Nadu during 1977-79'
     },
   ];
+ const allLawyers = [...staticLawyers, ...lawyers];
 
   return (
     <div className={styles.lawyersContainer}>
@@ -221,12 +244,12 @@ export default function LawyersList({ onBack }) {
         </div>
 
         <div className={styles.lawyersGrid}>
-          {lawyers.map((lawyer) => (
+          {allLawyers.map((lawyer) => (
             <div key={lawyer.id} className={styles.lawyerCard}>
               <div className={styles.cardHeader}>
                 <img
                   src={lawyer.image}
-                  alt={lawyer.name}
+                  alt={lawyer.name || lawyer.full_name}
                   className={styles.lawyerImage}
                 />
                 <div className={styles.lawyerBadge}>
@@ -236,14 +259,20 @@ export default function LawyersList({ onBack }) {
               </div>
 
               <div className={styles.cardContent}>
-                <h3 className={styles.lawyerName}>{lawyer.name}</h3>
+                <h3 className={styles.lawyerName}>
+                  {lawyer.name || lawyer.full_name}
+                </h3>
 
                 <div className={styles.ratingBox}>
                   <div className={styles.stars}>
                     <Star className={styles.filledStar} />
-                    <span className={styles.rating}>{lawyer.rating}</span>
+                    <span className={styles.rating}>
+                      {lawyer.rating || 4.5}
+                    </span>
                   </div>
-                  <span className={styles.reviews}>({lawyer.reviews} reviews)</span>
+                  <span className={styles.reviews}>
+                    ({lawyer.reviews || 0} reviews)
+                  </span>
                 </div>
 
                 <p className={styles.bio}>{lawyer.bio}</p>
@@ -280,4 +309,4 @@ export default function LawyersList({ onBack }) {
       </div>
     </div>
   );
-}
+};
