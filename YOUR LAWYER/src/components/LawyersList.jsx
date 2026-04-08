@@ -23,6 +23,53 @@ export default function LawyersList({ onBack }) {
     }
   };
 
+ const [consultations, setConsultations] = useState([]);
+
+useEffect(() => {
+  fetchConsultations();
+}, []);
+
+const fetchConsultations = async () => {
+  const { data: user } = await supabase.auth.getUser();
+
+  const { data } = await supabase
+    .from("consultations")
+    .select("*")
+    .eq("lawyer_id", user.user.id);
+
+  setConsultations(data || []);
+};
+
+const handleBook = async (lawyer) => {
+  try {
+    const { data: userData } = await supabase.auth.getUser();
+
+    const user = userData?.user;
+
+    if (!user) {
+      alert("Please login first");
+      return;
+    }
+
+    const { error } = await supabase.from("consultations").insert([
+      {
+        lawyer_id: lawyer.id,
+        user_id: user.id,
+        status: "pending"
+      }
+    ]);
+
+    if (error) {
+      console.error(error);
+      alert("Error booking consultation");
+    } else {
+      alert("Consultation booked successfully!");
+    }
+
+  } catch (err) {
+    console.error(err);
+  }
+};
   
   const staticLawyers = [
     {
@@ -299,7 +346,7 @@ export default function LawyersList({ onBack }) {
                   </a>
                 </div>
 
-                <button className={styles.consultButton}>
+                <button className={styles.consultButton} onClick={() => handleBook(lawyer)}>
                   Book Consultation
                 </button>
               </div>
