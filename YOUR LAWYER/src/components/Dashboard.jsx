@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { supabase } from "../lib/supabase";
 import { Link } from "react-router-dom";
 import {
   Scale,
@@ -45,6 +46,40 @@ const handleVerifyBarId = () => {
 };
 
 
+const updateStatus = async (id, status) => {
+  const { error } = await supabase
+    .from("consultations")
+    .update({ status })
+    .eq("id", id);
+
+  if (error) {
+    console.error(error);
+  } else {
+    fetchConsultations(); // refresh
+  }
+};
+
+
+const fetchConsultations = async () => {
+  const { data: user } = await supabase.auth.getUser();
+
+  const { data, error } = await supabase
+    .from("consultations")
+    .select("*")
+    .eq("lawyer_id", user.user.id);
+
+  if (error) {
+    console.error(error);
+  } else {
+    setConsultations(data);
+  }
+};
+
+const [consultations, setConsultations] = useState([]);
+
+useEffect(() => {
+  fetchConsultations();
+}, []);
   const handleSignOut = async () => {
     try {
       await signOut();
@@ -377,8 +412,8 @@ const handleVerifyBarId = () => {
 
         <div className={styles.lawyerStatCard}>
           <MessageCircle />
-          <h4>Consultations</h4>
-          <div className={styles.statNumber}>0</div>
+          <h4><Link to='/ConsultationsPage'>Consultations</Link></h4>
+          <div className={styles.statNumber}> {consultations.length}</div>
         </div>
       </div>
     </div>

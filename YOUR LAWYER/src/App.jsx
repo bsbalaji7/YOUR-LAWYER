@@ -23,6 +23,7 @@ import KnowYourRights from './components/KnowYourRights.jsx';
 import ActiveCases from './components/ActiveCases.jsx';
 import HelpSupport from './components/Helpdesk.jsx';
 import CaseHistory from './components/CaseHistory.jsx';
+import ConsultationsPage from './components/ConsultationsPage.jsx';
 
 
 function AppContent() {
@@ -125,6 +126,10 @@ function AppContent() {
        <Route
        path="/CaseHistory" 
        element={<CaseHistory />} 
+       />
+       <Route
+       path="/ConsultationsPage" 
+       element={<ConsultationsPage />} 
        />
 
 
