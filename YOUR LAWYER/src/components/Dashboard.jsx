@@ -60,26 +60,53 @@ const updateStatus = async (id, status) => {
 };
 
 
-const fetchConsultations = async () => {
-  const { data: user } = await supabase.auth.getUser();
+// ✅ Separate states
+  const [cases, setCases] = useState([]);
+  const [consultations, setConsultations] = useState([]);
 
-  const { data, error } = await supabase
-    .from("consultations")
-    .select("*")
-    .eq("lawyer_id", user.user.id);
+  // ✅ FETCH CASES
+  const fetchCases = async () => {
+    const { data: user } = await supabase.auth.getUser();
 
-  if (error) {
-    console.error(error);
-  } else {
-    setConsultations(data);
-  }
-};
+    const { data, error } = await supabase
+      .from("cases")
+      .select("*")
+      .eq("user_id", user.user.id);
 
-const [consultations, setConsultations] = useState([]);
+    if (!error) {
+      setCases(data || []);
+    }
+  };
 
-useEffect(() => {
-  fetchConsultations();
-}, []);
+  // ✅ FETCH CONSULTATIONS
+  const fetchConsultations = async () => {
+    const { data: user } = await supabase.auth.getUser();
+
+    const { data, error } = await supabase
+      .from("consultations")
+      .select("*")
+      .eq("lawyer_id", user.user.id);
+
+    if (!error) {
+      setConsultations(data || []);
+    }
+  };
+
+  // ✅ CALL BOTH
+  useEffect(() => {
+    fetchCases();
+    fetchConsultations();
+  }, []);
+
+  // ✅ COUNTS
+  const activeCasesCount = cases.filter(
+    (c) => c.status?.toLowerCase() === "active"
+  ).length;
+
+  const consultationsCount = consultations.length;
+
+consultations.forEach(c => console.log("Status:", c.status));
+
   const handleSignOut = async () => {
     try {
       await signOut();
@@ -401,7 +428,7 @@ useEffect(() => {
         <div className={styles.lawyerStatCard}>
           <FileText />
           <h4>Active Cases</h4>
-          <div className={styles.statNumber}>0</div>
+          <div className={styles.statNumber}>{activeCasesCount}</div>
         </div>
 
         <div className={styles.lawyerStatCard}>
@@ -413,7 +440,7 @@ useEffect(() => {
         <div className={styles.lawyerStatCard}>
           <MessageCircle />
           <h4><Link to='/ConsultationsPage'>Consultations</Link></h4>
-          <div className={styles.statNumber}> {consultations.length}</div>
+          <div className={styles.statNumber}> {consultationsCount}</div>
         </div>
       </div>
     </div>
