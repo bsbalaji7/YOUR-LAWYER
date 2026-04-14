@@ -8,13 +8,22 @@ export default function LawyersList({ onBack }) {
 
   useEffect(() => {
     fetchLawyers();
-  }, []);
+    const interval = setInterval(() => {
+    fetchLawyers();
+  }, 3000); // refresh every 3 sec
+
+  return () => clearInterval(interval);
+}, []);
 
   const fetchLawyers = async () => {
     const { data, error } = await supabase
       .from("profiles")
       .select("*")
-      .eq("role", "lawyer");
+      .eq("role", "lawyer")
+      .eq("is_approved", true);
+      console.log("APPROVED LAWYERS:", data); // ✅ PASTE HERE
+
+      console.log("LAWYERS FROM DB:", data);
 
     if (error) {
       console.error(error);

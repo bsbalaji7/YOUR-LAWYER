@@ -8,6 +8,49 @@ export default function AdminHearingManager({ onBack }) {
   const [hearings, setHearings] = useState([]);
   const [editingId, setEditingId] = useState(null);
 
+  // ================= LAWYER APPROVAL =================
+const [pendingLawyers, setPendingLawyers] = useState([]);
+
+const fetchPendingLawyers = async () => {
+  const { data } = await supabase
+    .from("profiles")
+    .select("*")
+    .eq("role", "lawyer")
+    .or("is_approved.eq.false,is_approved.is.null");
+
+  setPendingLawyers(data || []);
+};
+
+const approveLawyer = async (id) => {
+  const { error } = await supabase
+    .from("profiles")
+    .update({ is_approved: true })
+    .eq("id", id)
+    .select();
+
+  if (error) {
+    console.error("APPROVE ERROR:", error);
+    alert("Approval failed");
+    return;
+
+    
+  }
+
+  alert("Lawyer approved ✅");
+
+  fetchPendingLawyers(); // refresh list
+  window.location.reload();
+};
+
+const rejectLawyer = async (id) => {
+  await supabase
+    .from("profiles")
+    .delete()
+    .eq("id", id);
+
+  fetchPendingLawyers();
+};
+
   const [form, setForm] = useState({
     case_id: "",
     hearing_date: "",
@@ -34,9 +77,10 @@ export default function AdminHearingManager({ onBack }) {
   };
 
   useEffect(() => {
-    fetchCases();
-    fetchHearings();
-  }, []);
+  fetchCases();
+  fetchHearings();
+  fetchPendingLawyers(); // ✅ ADD THIS LINE
+}, []);
 
   /* ================= ADD ================= */
   const addHearing = async () => {
@@ -172,6 +216,7 @@ export default function AdminHearingManager({ onBack }) {
             justifyContent: "space-between",
           }}
         >
+          
           <div>
             <b>{new Date(h.hearing_date).toLocaleString()}</b>
             <p>{h.location}</p>
@@ -184,6 +229,38 @@ export default function AdminHearingManager({ onBack }) {
           </div>
         </div>
       ))}
+
+      <h2>Pending Lawyer Approvals</h2>
+
+{pendingLawyers.length === 0 && <p>No pending lawyers</p>}
+
+{pendingLawyers.map((lawyer) => (
+  <div
+    key={lawyer.id}
+    style={{
+      border: "1px solid #ccc",
+      padding: 10,
+      marginBottom: 10,
+      display: "flex",
+      justifyContent: "space-between",
+    }}
+  >
+    <div>
+      <b>{lawyer.full_name}</b>
+      <p>{lawyer.email}</p>
+    </div>
+
+    <div>
+      <button onClick={() => approveLawyer(lawyer.id)}>
+        ✅ Approve
+      </button>
+
+      <button onClick={() => rejectLawyer(lawyer.id)}>
+        ❌ Reject
+      </button>
+    </div>
+  </div>
+))}
     </div>
   );
 }
