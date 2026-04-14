@@ -294,11 +294,21 @@ const handleBook = async (lawyer) => {
           {allLawyers.map((lawyer) => (
             <div key={lawyer.id} className={styles.lawyerCard}>
               <div className={styles.cardHeader}>
-                <img
-                  src={lawyer.image}
-                  alt={lawyer.name || lawyer.full_name}
-                  className={styles.lawyerImage}
-                />
+               <img
+  src={
+    lawyer.image ||
+    lawyer.avatar_url ||
+    lawyer.profile_image ||
+    lawyer.photo_url ||
+    "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+  }
+  alt={lawyer.name || lawyer.full_name}
+  className={styles.lawyerImage}
+  onError={(e) => {
+    e.target.src = "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+  }}
+/>
+               
                 <div className={styles.lawyerBadge}>
                   <Briefcase className={styles.badgeIcon} />
                   {lawyer.specialization}
