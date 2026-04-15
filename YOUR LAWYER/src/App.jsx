@@ -24,6 +24,7 @@ import ActiveCases from './components/ActiveCases.jsx';
 import HelpSupport from './components/Helpdesk.jsx';
 import CaseHistory from './components/CaseHistory.jsx';
 import ConsultationsPage from './components/ConsultationsPage.jsx';
+import WomenHelplineComplaint from './components/WomenHelplineComplaint.jsx';
 
 
 function AppContent() {
@@ -130,6 +131,10 @@ function AppContent() {
        <Route
        path="/ConsultationsPage" 
        element={<ConsultationsPage />} 
+       />
+       <Route
+       path="/WomenHelplineComplaint" 
+       element={< WomenHelplineComplaint />} 
        />
 
 

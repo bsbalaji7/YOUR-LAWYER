@@ -374,7 +374,7 @@ consultations.forEach(c => console.log("Status:", c.status));
                   <MessageCircle className={styles.serviceIcon} />
                 </div>
                 <div className={styles.serviceContent}>
-                  <a target='_blank' href='https://eservices.tnpolice.gov.in/CCTNSNICSDC/WomensHelpline'>Women Helpline</a>
+                  <Link to="/WomenHelplineComplaint" target='_blank'>Womens(MAGALIR) Raise Complaint</Link>
                   <p>Helpline Number Service</p>
                 </div>
               </div>
