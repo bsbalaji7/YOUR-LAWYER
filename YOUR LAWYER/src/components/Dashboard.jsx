@@ -291,9 +291,6 @@ consultations.forEach(c => console.log("Status:", c.status));
                   </button>
                 </li>
                 <li className={styles.sidebarListItem}>
-                  <button>Search Laws</button>
-                </li>
-                <li className={styles.sidebarListItem}>
                   <button><Link to="/HelpAndSupport"> Help & Support </Link></button>
                 </li>
               </ul>
