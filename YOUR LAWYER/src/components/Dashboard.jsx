@@ -37,7 +37,7 @@ const [isVerified, setIsVerified] = useState(!!profile?.barCouncilId);
 const [selectedCase, setSelectedCase] = useState(null);
 
 const handleVerifyBarId = () => {
-  if (barCouncilId.trim() === '1234') {
+  if (barCouncilId.trim() === 'TN/1234/2023') {
     setIsVerified(true);
   }
    else {
@@ -219,7 +219,7 @@ consultations.forEach(c => console.log("Status:", c.status));
                   <button onClick={() => setCurrentPage('legalRights')}>Know Your Rights</button>
                 </li>
                 <li className={styles.sidebarListItem}>
-                  <button>Case Status Tracking</button>
+                  <button onClick={() => setCurrentPage('caseTracking')}>Case Status Tracking</button>
                 </li>
               </ul>
             </div>
