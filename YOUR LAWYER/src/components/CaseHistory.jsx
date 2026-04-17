@@ -123,7 +123,7 @@ export default function CaseHistory({ caseId, onBack }) {
                   ? new Date(item.created_at).toLocaleString()
                   : "No time"}
               </div>
-
+{/*  */}
             </div>
           ))}
         </div>
